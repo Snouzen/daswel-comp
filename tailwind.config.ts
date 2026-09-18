@@ -22,6 +22,14 @@ const config: Config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        /* Legend:
+         * Primary: #f51f1f (Industrial Crimson)
+         * Secondary: #4d40ff (Electric Indigo)
+         */
+        brand: {
+          primary: "#f51f1f",
+          secondary: "#4d40ff",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
