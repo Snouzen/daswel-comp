@@ -6,7 +6,8 @@ import { usePathname } from "next/navigation";
 import { companyData } from "@/data/company";
 import { mainNavItems } from "@/data/navigation";
 import { Button } from "@/components/ui/button";
-import { Menu, X, MessageSquare, Building2 } from "lucide-react";
+import { Logo } from "@/components/layout/logo";
+import { Menu, X, MessageSquare } from "lucide-react";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -16,16 +17,7 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo -> Home */}
-        <Link
-          href="/"
-          className="flex items-center space-x-2.5 font-bold text-xl tracking-tight text-primary hover:opacity-90 transition-opacity"
-          aria-label={`${companyData.name} - Home`}
-        >
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-sm">
-            <Building2 className="h-5 w-5" />
-          </div>
-          <span className="text-foreground">{companyData.name}</span>
-        </Link>
+        <Logo />
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8 text-sm font-medium">

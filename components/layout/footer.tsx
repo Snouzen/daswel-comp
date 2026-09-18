@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { companyData } from "@/data/company";
 import { footerNavItems } from "@/data/navigation";
-import { MapPin, Phone, Mail, Clock, Building2, MessageSquare } from "lucide-react";
+import { Logo } from "@/components/layout/logo";
+import { MapPin, Phone, Mail, Clock, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function Footer() {
@@ -13,15 +14,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Identitas Perusahaan */}
           <div className="space-y-4 md:col-span-2">
-            <Link
-              href="/"
-              className="flex items-center space-x-2.5 font-bold text-xl tracking-tight text-primary"
-            >
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-sm">
-                <Building2 className="h-4 w-4" />
-              </div>
-              <span className="text-foreground">{companyData.name}</span>
-            </Link>
+            <Logo showTagline={true} />
             <p className="text-sm leading-relaxed max-w-md">
               {companyData.description}
             </p>
