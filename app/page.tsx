@@ -14,9 +14,9 @@ import {
 
 import { HeroSection } from "@/components/home/hero-section";
 import { AboutAndFeaturesSection } from "@/components/home/about-and-features-section";
+import { FeaturedProductsSection } from "@/components/home/featured-products-section";
 
 export default function HomePage() {
-  const featuredProducts = productsData.filter((p) => p.featured);
   const latestNews = newsData.slice(0, 2);
 
   return (
@@ -28,50 +28,7 @@ export default function HomePage() {
       <AboutAndFeaturesSection />
 
       {/* Sorotan Produk */}
-      <section className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-10 gap-4">
-          <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground">
-              Produk Unggulan
-            </h2>
-            <p className="text-muted-foreground">
-              Solusi peralatan manufaktur dan industri pilihan utama mitra kami.
-            </p>
-          </div>
-          <Button asChild variant="outline">
-            <Link href="/products" className="gap-2">
-              Semua Produk <ArrowRight className="h-4 w-4" />
-            </Link>
-          </Button>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {featuredProducts.map((product) => (
-            <div
-              key={product.id}
-              className="flex flex-col rounded-xl border bg-card overflow-hidden shadow-sm hover:shadow-md transition-shadow"
-            >
-              <div className="h-48 bg-muted flex items-center justify-center text-muted-foreground text-sm font-medium">
-                {product.name} Image Placeholder
-              </div>
-              <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                <div className="space-y-2">
-                  <span className="text-xs font-semibold text-primary uppercase tracking-wider">
-                    {product.category}
-                  </span>
-                  <h3 className="font-semibold text-lg text-foreground">{product.name}</h3>
-                  <p className="text-sm text-muted-foreground line-clamp-2">
-                    {product.shortDescription}
-                  </p>
-                </div>
-                <Button asChild variant="secondary" className="w-full">
-                  <Link href={`/products`}>Detail Produk</Link>
-                </Button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <FeaturedProductsSection />
 
       {/* Kabar Terbaru */}
       <section className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
