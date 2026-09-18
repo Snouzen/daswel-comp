@@ -4,11 +4,11 @@ import Link from "next/link";
 import { productsData } from "@/data/products";
 import { companyData } from "@/data/company";
 import { ProductCard } from "@/components/products/product-card";
+import { ProductWhatsAppButton } from "@/components/products/product-whatsapp-button";
 import { Button } from "@/components/ui/button";
 import {
   Box,
   Check,
-  MessageSquare,
   ArrowLeft,
   ShieldCheck,
   Zap,
@@ -63,10 +63,6 @@ export default async function ProductDetailPage({
   }
 
   const otherProducts = productsData.filter((p) => p.slug !== slug).slice(0, 2);
-
-  const productWaUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(
-    `Halo ${companyData.name}, saya ingin konsultasi teknis dan meminta surat penawaran harga resmi untuk unit ${product.name}.`
-  )}`;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -191,12 +187,13 @@ export default async function ProductDetailPage({
 
           {/* CTAs */}
           <div className="flex flex-wrap gap-4 pt-2">
-            <Button asChild size="lg" className="gap-2 shadow-md font-semibold px-6 py-6 text-sm sm:text-base">
-              <a href={productWaUrl} target="_blank" rel="noopener noreferrer">
-                <MessageSquare className="h-4 w-4" />
-                Minta Penawaran Harga WhatsApp
-              </a>
-            </Button>
+            <ProductWhatsAppButton
+              productName={product.name}
+              size="lg"
+              variant="default"
+              label="Minta Penawaran Harga WhatsApp"
+              className="shadow-md font-semibold px-6 py-6 text-sm sm:text-base"
+            />
             <Button asChild variant="outline" size="lg" className="px-6 py-6 text-sm sm:text-base">
               <Link href="/contact">Hubungi Kantor Pusat</Link>
             </Button>

@@ -5,7 +5,8 @@ import { motion } from "framer-motion";
 import { Product } from "@/data/products";
 import { companyData } from "@/data/company";
 import { Button } from "@/components/ui/button";
-import { Box, Check, MessageSquare, ArrowRight } from "lucide-react";
+import { Box, Check, ArrowRight } from "lucide-react";
+import { ProductWhatsAppButton } from "@/components/products/product-whatsapp-button";
 
 interface ProductCardProps {
   product: Product;
@@ -14,9 +15,6 @@ interface ProductCardProps {
 
 export function ProductCard({ product, delay = 0 }: ProductCardProps) {
   const specEntries = Object.entries(product.specifications).slice(0, 3);
-  const productWaUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(
-    `Halo ${companyData.name}, saya ingin meminta surat penawaran harga resmi dan ketersediaan unit untuk ${product.name}.`
-  )}`;
 
   return (
     <motion.article
@@ -93,12 +91,13 @@ export function ProductCard({ product, delay = 0 }: ProductCardProps) {
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
-          <Button asChild variant="outline" size="sm" className="w-full gap-2 text-xs font-medium">
-            <a href={productWaUrl} target="_blank" rel="noopener noreferrer">
-              <MessageSquare className="h-3.5 w-3.5 text-primary" />
-              Tanya Harga via WhatsApp
-            </a>
-          </Button>
+          <ProductWhatsAppButton
+            productName={product.name}
+            variant="outline"
+            size="sm"
+            label="Tanya Harga via WhatsApp"
+            className="w-full text-xs font-medium"
+          />
         </div>
       </div>
     </motion.article>
