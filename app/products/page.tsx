@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { productsData } from "@/data/products";
 import { companyData } from "@/data/company";
+import { ProductGrid } from "@/components/products/product-grid";
 import { Button } from "@/components/ui/button";
-import { Box, Check, MessageSquare, ArrowRight } from "lucide-react";
+import { MessageSquare } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Katalog Produk & Peralatan Manufaktur",
@@ -42,77 +42,9 @@ export default function ProductsPage() {
         </p>
       </header>
 
-      {/* Products Grid */}
-      <section aria-label="Daftar Produk" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {productsData.map((product) => {
-          const specEntries = Object.entries(product.specifications);
-          const productWaUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(
-            `Halo ${companyData.name}, saya ingin meminta penawaran harga dan spesifikasi teknis untuk ${product.name}.`
-          )}`;
-
-          return (
-            <article
-              key={product.id}
-              className="flex flex-col rounded-2xl border bg-card overflow-hidden shadow-sm hover:shadow-lg transition-all hover:border-primary/40 group"
-            >
-              {/* Product Visual Area */}
-              <div className="relative h-56 bg-gradient-to-br from-muted to-muted/50 flex flex-col items-center justify-center p-6 text-center">
-                {product.featured && (
-                  <span className="absolute top-3 left-3 rounded-full bg-primary px-2.5 py-0.5 text-[11px] font-semibold text-primary-foreground shadow-sm">
-                    Unggulan
-                  </span>
-                )}
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-background/90 text-primary shadow-sm group-hover:scale-110 transition-transform">
-                  <Box className="h-8 w-8" />
-                </div>
-                <span className="mt-3 text-xs font-medium text-muted-foreground">
-                  Foto Unit {product.name}
-                </span>
-              </div>
-
-              {/* Product Information */}
-              <div className="p-6 flex-1 flex flex-col justify-between space-y-6">
-                <div className="space-y-3">
-                  <span className="text-xs font-bold text-primary uppercase tracking-wider">
-                    {product.category}
-                  </span>
-                  <h2 className="font-bold text-xl text-foreground group-hover:text-primary transition-colors">
-                    {product.name}
-                  </h2>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {product.description}
-                  </p>
-
-                  {/* Spesifikasi Lengkap */}
-                  <div className="pt-3 border-t space-y-2 text-xs">
-                    <span className="font-semibold text-foreground uppercase tracking-wider block text-[11px]">
-                      Spesifikasi Utama:
-                    </span>
-                    {specEntries.map(([key, value]) => (
-                      <div key={key} className="flex items-center justify-between text-muted-foreground">
-                        <span className="flex items-center gap-1.5 font-medium text-foreground">
-                          <Check className="h-3 w-3 text-primary shrink-0" />
-                          {key}:
-                        </span>
-                        <span className="font-semibold text-foreground/90">{value}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* WhatsApp Action */}
-                <div className="space-y-2 pt-2">
-                  <Button asChild className="w-full gap-2 font-medium">
-                    <a href={productWaUrl} target="_blank" rel="noopener noreferrer">
-                      <MessageSquare className="h-4 w-4" />
-                      Konsultasi & Tanya Harga
-                    </a>
-                  </Button>
-                </div>
-              </div>
-            </article>
-          );
-        })}
+      {/* Interactive Products Grid with Search & Filters */}
+      <section aria-label="Katalog Produk Interaktif">
+        <ProductGrid products={productsData} />
       </section>
 
       {/* Bottom Consultation Banner */}
@@ -121,7 +53,7 @@ export default function ProductsPage() {
           Butuh Kustomisasi Spesifikasi Khusus?
         </h2>
         <p className="text-muted-foreground text-sm sm:text-base max-w-xl mx-auto">
-          Tim rekayasa teknis {companyData.name} siap merancang penyesuaian mesin sesuai dengan kapasitas dan ruang pabrik Anda.
+          Tim rekayasa teknis {companyData.name} siap merancang penyesuaian mesin sesuai dengan kapasitas dan tata letak pabrik Anda.
         </p>
         <div className="pt-2">
           <Button asChild size="lg" variant="default" className="gap-2">
