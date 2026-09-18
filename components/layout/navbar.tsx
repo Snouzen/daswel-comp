@@ -37,27 +37,30 @@ export function Navbar() {
         <Logo />
 
         {/* Desktop Navigation */}
-        <nav aria-label="Navigasi Utama" className="hidden md:flex items-center space-x-2 text-sm font-medium">
-          {mainNavItems.map((link) => {
-            const isActive = pathname === link.href || pathname?.startsWith(link.href + "/");
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                aria-current={isActive ? "page" : undefined}
-                className={`relative px-3.5 py-1.5 rounded-full text-sm transition-all ${
-                  isActive
-                    ? "bg-primary/10 text-primary font-semibold shadow-sm"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
-                }`}
-              >
-                {link.label}
-                {isActive && (
-                  <span className="sr-only"> (halaman saat ini)</span>
-                )}
-              </Link>
-            );
-          })}
+        <nav aria-label="Navigasi Utama" className="hidden md:flex items-center">
+          <ul className="flex items-center space-x-1 text-sm font-medium">
+            {mainNavItems.map((link) => {
+              const isActive = pathname === link.href || pathname?.startsWith(link.href + "/");
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    aria-current={isActive ? "page" : undefined}
+                    className={`relative px-3.5 py-1.5 rounded-full text-sm transition-all inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
+                      isActive
+                        ? "bg-primary/10 text-primary font-semibold shadow-sm"
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
+                    }`}
+                  >
+                    {link.label}
+                    {isActive && (
+                      <span className="sr-only"> (halaman saat ini)</span>
+                    )}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
         </nav>
 
         {/* Desktop CTA */}
@@ -115,28 +118,31 @@ export function Navbar() {
             transition={{ duration: 0.25, ease: "easeInOut" }}
             className="md:hidden overflow-hidden border-b bg-background/98 backdrop-blur-md px-4 pt-3 pb-6 space-y-4"
           >
-            <nav aria-label="Navigasi Menu Mobile" className="flex flex-col space-y-1.5">
-              {mainNavItems.map((link) => {
-                const isActive = pathname === link.href || pathname?.startsWith(link.href + "/");
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
-                    aria-current={isActive ? "page" : undefined}
-                    className={`py-3 px-4 rounded-xl text-base transition-colors flex items-center justify-between ${
-                      isActive
-                        ? "bg-primary/10 text-primary font-semibold border-l-4 border-primary"
-                        : "text-muted-foreground hover:bg-muted hover:text-foreground"
-                    }`}
-                  >
-                    <span>{link.label}</span>
-                    {isActive && (
-                      <span className="h-2 w-2 rounded-full bg-primary" />
-                    )}
-                  </Link>
-                );
-              })}
+            <nav aria-label="Navigasi Menu Mobile">
+              <ul className="flex flex-col space-y-1.5">
+                {mainNavItems.map((link) => {
+                  const isActive = pathname === link.href || pathname?.startsWith(link.href + "/");
+                  return (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        onClick={() => setIsOpen(false)}
+                        aria-current={isActive ? "page" : undefined}
+                        className={`py-3 px-4 rounded-xl text-base transition-colors flex items-center justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
+                          isActive
+                            ? "bg-primary/10 text-primary font-semibold border-l-4 border-primary"
+                            : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                        }`}
+                      >
+                        <span>{link.label}</span>
+                        {isActive && (
+                          <span className="h-2 w-2 rounded-full bg-primary" />
+                        )}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
             </nav>
 
             {/* Quick Mobile Info & WhatsApp CTA */}

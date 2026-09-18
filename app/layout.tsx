@@ -80,8 +80,17 @@ export default function RootLayout({
         />
       </head>
       <body className={`${jakartaSans.variable} font-sans min-h-screen flex flex-col antialiased`}>
+        {/* Skip to Main Content Link for Keyboard & Screen Reader Accessibility */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-ring"
+        >
+          Langsung ke konten utama
+        </a>
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" tabIndex={-1} className="flex-1 outline-none">
+          {children}
+        </main>
         <Footer />
         <FloatingWhatsApp />
       </body>
