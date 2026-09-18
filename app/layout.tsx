@@ -41,6 +41,14 @@ export const metadata: Metadata = {
     title: `${companyData.name} — ${companyData.tagline}`,
     description: companyData.description,
   },
+  icons: {
+    icon: [
+      { url: "/images/icon.png", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    shortcut: "/images/icon.png",
+    apple: "/images/icon.png",
+  },
   robots: {
     index: true,
     follow: true,
@@ -74,6 +82,9 @@ export default function RootLayout({
   return (
     <html lang="id" className="scroll-smooth" suppressHydrationWarning>
       <head>
+        <link rel="icon" href="/images/icon.png" type="image/png" />
+        <link rel="shortcut icon" href="/images/icon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/images/icon.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
