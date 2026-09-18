@@ -20,18 +20,24 @@ export function Navbar() {
         <Logo />
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8 text-sm font-medium">
+        <nav aria-label="Navigasi Utama" className="hidden md:flex items-center space-x-2 text-sm font-medium">
           {mainNavItems.map((link) => {
             const isActive = pathname === link.href || pathname?.startsWith(link.href + "/");
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`transition-colors hover:text-primary ${
-                  isActive ? "text-primary font-semibold" : "text-muted-foreground"
+                aria-current={isActive ? "page" : undefined}
+                className={`relative px-3.5 py-1.5 rounded-full text-sm transition-all ${
+                  isActive
+                    ? "bg-primary/10 text-primary font-semibold shadow-sm"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
                 }`}
               >
                 {link.label}
+                {isActive && (
+                  <span className="sr-only"> (halaman saat ini)</span>
+                )}
               </Link>
             );
           })}
@@ -60,7 +66,7 @@ export function Navbar() {
       {/* Mobile dropdown */}
       {isOpen && (
         <div className="md:hidden border-b bg-background px-4 pt-2 pb-5 space-y-3">
-          <nav className="flex flex-col space-y-1">
+          <nav aria-label="Navigasi Menu Mobile" className="flex flex-col space-y-1.5">
             {mainNavItems.map((link) => {
               const isActive = pathname === link.href || pathname?.startsWith(link.href + "/");
               return (
@@ -68,13 +74,17 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className={`py-2 px-3 rounded-md text-base transition-colors ${
+                  aria-current={isActive ? "page" : undefined}
+                  className={`py-2.5 px-3.5 rounded-xl text-base transition-colors flex items-center justify-between ${
                     isActive
-                      ? "bg-primary/10 text-primary font-semibold"
+                      ? "bg-primary/10 text-primary font-semibold border-l-4 border-primary"
                       : "text-muted-foreground hover:bg-muted hover:text-foreground"
                   }`}
                 >
-                  {link.label}
+                  <span>{link.label}</span>
+                  {isActive && (
+                    <span className="h-2 w-2 rounded-full bg-primary" />
+                  )}
                 </Link>
               );
             })}
