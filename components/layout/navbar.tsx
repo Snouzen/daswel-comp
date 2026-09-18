@@ -4,14 +4,9 @@ import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { companyData } from "@/data/company";
+import { mainNavItems } from "@/data/navigation";
 import { Button } from "@/components/ui/button";
 import { Menu, X, MessageSquare, Building2 } from "lucide-react";
-
-const navLinks = [
-  { href: "/products", label: "Product" },
-  { href: "/news", label: "News" },
-  { href: "/contact", label: "Contact Us" },
-];
 
 export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -34,7 +29,7 @@ export function Navbar() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8 text-sm font-medium">
-          {navLinks.map((link) => {
+          {mainNavItems.map((link) => {
             const isActive = pathname === link.href || pathname?.startsWith(link.href + "/");
             return (
               <Link
@@ -74,7 +69,7 @@ export function Navbar() {
       {isOpen && (
         <div className="md:hidden border-b bg-background px-4 pt-2 pb-5 space-y-3">
           <nav className="flex flex-col space-y-1">
-            {navLinks.map((link) => {
+            {mainNavItems.map((link) => {
               const isActive = pathname === link.href || pathname?.startsWith(link.href + "/");
               return (
                 <Link

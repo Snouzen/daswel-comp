@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { companyData } from "@/data/company";
+import { footerNavItems } from "@/data/navigation";
 import { MapPin, Phone, Mail, Clock, Building2, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -40,26 +41,13 @@ export function Footer() {
               Navigasi
             </h3>
             <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="/" className="hover:text-foreground transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/products" className="hover:text-foreground transition-colors">
-                  Product
-                </Link>
-              </li>
-              <li>
-                <Link href="/news" className="hover:text-foreground transition-colors">
-                  News
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-foreground transition-colors">
-                  Contact Us
-                </Link>
-              </li>
+              {footerNavItems.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="hover:text-foreground transition-colors">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
