@@ -56,6 +56,14 @@ export const metadata: Metadata = {
   title: "Katalog Produk & Peralatan Manufaktur",
   description:
     "Jelajahi lini produk mesin industri, genset heavy-duty, dan sistem filtrasi udara berkualitas tinggi berstandar ISO dari Daswel Company.",
+  keywords: [
+    "produk industri",
+    "mesin manufaktur",
+    "genset industri",
+    "filtrasi udara industri",
+    "peralatan pabrik",
+    "Daswel Company",
+  ],
   alternates: {
     canonical: "https://daswel.com/products",
   },
@@ -64,12 +72,24 @@ export const metadata: Metadata = {
     description:
       "Temukan mesin industri dan peralatan manufaktur berkinerja tinggi untuk menunjang produktivitas pabrik Anda.",
     url: "https://daswel.com/products",
+    siteName: companyData.name,
+    locale: "id_ID",
+    type: "website",
+    images: [
+      {
+        url: "https://daswel.com/images/og-products.jpg",
+        width: 1200,
+        height: 630,
+        alt: `Katalog Peralatan Industri - ${companyData.name}`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `Produk & Peralatan Industri | ${companyData.name}`,
     description:
       "Peralatan manufaktur efisiensi energi dengan garansi resmi dan dukungan teknis penuh.",
+    images: ["https://daswel.com/images/og-products.jpg"],
   },
 };
 

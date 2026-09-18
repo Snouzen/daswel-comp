@@ -34,6 +34,13 @@ export async function generateMetadata({
   return {
     title: `${product.name} — Spesifikasi & Penawaran Resmi`,
     description: product.description,
+    keywords: [
+      product.name,
+      product.category,
+      "spesifikasi mesin",
+      "alat industri",
+      companyData.name,
+    ],
     alternates: {
       canonical: `https://daswel.com/products/${product.slug}`,
     },
@@ -41,12 +48,23 @@ export async function generateMetadata({
       title: `${product.name} | ${companyData.name}`,
       description: product.shortDescription,
       url: `https://daswel.com/products/${product.slug}`,
+      siteName: companyData.name,
+      locale: "id_ID",
       type: "website",
+      images: [
+        {
+          url: `https://daswel.com${product.image}`,
+          width: 1200,
+          height: 630,
+          alt: `${product.name} - ${companyData.name}`,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: `${product.name} | ${companyData.name}`,
       description: product.shortDescription,
+      images: [`https://daswel.com${product.image}`],
     },
   };
 }
