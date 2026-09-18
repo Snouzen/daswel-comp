@@ -12,46 +12,16 @@ import {
   MessageSquare,
 } from "lucide-react";
 
+import { HeroSection } from "@/components/home/hero-section";
+
 export default function HomePage() {
   const featuredProducts = productsData.filter((p) => p.featured);
   const latestNews = newsData.slice(0, 2);
 
   return (
     <div className="flex flex-col space-y-20 pb-16">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-primary/10 via-background to-background py-24 sm:py-32">
-        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-6">
-            <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-              Profil Resmi Perusahaan
-            </span>
-            <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl text-foreground">
-              {companyData.name}: Solusi Cerdas untuk Kebutuhan Industri Anda
-            </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              {companyData.description}
-            </p>
-            <div className="flex flex-wrap gap-4 pt-4">
-              <Button asChild size="lg" className="gap-2">
-                <Link href="/products">
-                  Lihat Produk Kami
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="gap-2">
-                <a
-                  href={companyData.whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <MessageSquare className="h-4 w-4 text-primary" />
-                  Konsultasi WhatsApp
-                </a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Sambutan Utama (Hero) */}
+      <HeroSection />
 
       {/* Alasan Memilih Kami */}
       <section className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
