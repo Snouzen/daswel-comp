@@ -72,14 +72,17 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="id" className="scroll-smooth">
+    <html lang="id" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${jakartaSans.variable} font-sans min-h-screen flex flex-col antialiased`}>
+      <body
+        className={`${jakartaSans.variable} font-sans min-h-screen flex flex-col antialiased`}
+        suppressHydrationWarning
+      >
         {/* Skip to Main Content Link for Keyboard & Screen Reader Accessibility */}
         <a
           href="#main-content"
