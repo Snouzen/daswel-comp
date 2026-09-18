@@ -13,69 +13,19 @@ import {
 } from "lucide-react";
 
 import { HeroSection } from "@/components/home/hero-section";
+import { AboutAndFeaturesSection } from "@/components/home/about-and-features-section";
 
 export default function HomePage() {
   const featuredProducts = productsData.filter((p) => p.featured);
   const latestNews = newsData.slice(0, 2);
 
   return (
-    <div className="flex flex-col space-y-20 pb-16">
+    <div className="flex flex-col space-y-24 pb-16">
       {/* Sambutan Utama (Hero) */}
       <HeroSection />
 
-      {/* Alasan Memilih Kami */}
-      <section className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground">
-            Mengapa Memilih Kami
-          </h2>
-          <p className="text-muted-foreground">
-            Komitmen kami untuk memberikan keandalan terbaik di setiap lini operasional mitra.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="rounded-xl border bg-card p-6 shadow-sm space-y-3">
-            <div className="p-3 bg-primary/10 w-fit rounded-lg text-primary">
-              <ShieldCheck className="h-6 w-6" />
-            </div>
-            <h3 className="font-semibold text-lg text-foreground">Kualitas Teruji</h3>
-            <p className="text-sm text-muted-foreground">
-              Semua mesin dan komponen bersertifikasi standar mutu internasional (ISO).
-            </p>
-          </div>
-
-          <div className="rounded-xl border bg-card p-6 shadow-sm space-y-3">
-            <div className="p-3 bg-primary/10 w-fit rounded-lg text-primary">
-              <Zap className="h-6 w-6" />
-            </div>
-            <h3 className="font-semibold text-lg text-foreground">Efisiensi Energi</h3>
-            <p className="text-sm text-muted-foreground">
-              Didesain khusus untuk meminimalkan konsumsi daya tanpa mengorbankan output.
-            </p>
-          </div>
-
-          <div className="rounded-xl border bg-card p-6 shadow-sm space-y-3">
-            <div className="p-3 bg-primary/10 w-fit rounded-lg text-primary">
-              <Award className="h-6 w-6" />
-            </div>
-            <h3 className="font-semibold text-lg text-foreground">Garansi Resmi</h3>
-            <p className="text-sm text-muted-foreground">
-              Jaminan perlindungan menyeluruh dan ketersediaan suku cadang berkelanjutan.
-            </p>
-          </div>
-
-          <div className="rounded-xl border bg-card p-6 shadow-sm space-y-3">
-            <div className="p-3 bg-primary/10 w-fit rounded-lg text-primary">
-              <Clock className="h-6 w-6" />
-            </div>
-            <h3 className="font-semibold text-lg text-foreground">Dukungan Responsif</h3>
-            <p className="text-sm text-muted-foreground">
-              Layanan bantuan teknis dan konsultasi sigap dari tim ahli berpengalaman.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Tentang Perusahaan & Keunggulan */}
+      <AboutAndFeaturesSection />
 
       {/* Sorotan Produk */}
       <section className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
