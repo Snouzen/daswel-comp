@@ -27,6 +27,11 @@ export const mainNavItems: NavItem[] = [
     description: "Dokumentasi visual dan galeri foto unit alat berat operasional",
   },
   {
+    label: "About Us",
+    href: "/about",
+    description: "Dedikasi, prinsip, nilai-nilai, dan keunggulan kompetitif Daswel",
+  },
+  {
     label: "Contact Us",
     href: "/contact",
     description: "Informasi kontak, lokasi kantor, dan konsultasi WhatsApp",
@@ -38,5 +43,7 @@ export const footerNavItems: NavItem[] = [
   { label: "Product", href: "/products" },
   { label: "News", href: "/news" },
   { label: "Gallery", href: "/gallery" },
+  { label: "About Us", href: "/about" },
   { label: "Contact Us", href: "/contact" },
 ];
+
