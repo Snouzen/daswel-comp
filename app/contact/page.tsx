@@ -3,6 +3,7 @@ import { companyData } from "@/data/company";
 import { contactDepartments, quickInquiries } from "@/data/contact";
 import { ContactForm } from "@/components/contact/contact-form";
 import { ContactInfoSection } from "@/components/contact/contact-info-section";
+import { CompanyMap } from "@/components/contact/company-map";
 import { WhatsAppClickButton } from "@/components/contact/whatsapp-click-button";
 import { Button } from "@/components/ui/button";
 import {
@@ -203,44 +204,8 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* Google Maps Location Embed */}
-        <section id="map-section" aria-label="Peta Lokasi Perusahaan" className="space-y-4 pt-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-            <div className="space-y-1">
-              <h2 className="text-2xl font-bold tracking-tight text-foreground flex items-center gap-2">
-                <Building2 className="h-5 w-5 text-primary" />
-                Lokasi Kantor & Fasilitas Workshop
-              </h2>
-              <p className="text-sm text-muted-foreground">
-                Kunjungi kantor pusat kami di lokasi strategis berikut:
-              </p>
-            </div>
-            <Button asChild variant="outline" size="sm" className="gap-1.5 self-start sm:self-auto">
-              <a
-                href="https://maps.google.com/?q=Jakarta"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span>Buka di Google Maps</span>
-                <ExternalLink className="h-3.5 w-3.5" />
-              </a>
-            </Button>
-          </div>
-
-          <div className="overflow-hidden rounded-3xl border shadow-sm aspect-[16/9] sm:aspect-[21/9] w-full bg-muted">
-            <iframe
-              src={companyData.mapEmbedUrl}
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title={`Peta Lokasi ${companyData.name}`}
-              className="w-full h-full"
-            />
-          </div>
-        </section>
+        {/* Company Location Map Section */}
+        <CompanyMap />
       </div>
     </>
   );
