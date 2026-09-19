@@ -3,6 +3,7 @@ import { companyData } from "@/data/company";
 import { contactDepartments, quickInquiries } from "@/data/contact";
 import { ContactForm } from "@/components/contact/contact-form";
 import { ContactInfoSection } from "@/components/contact/contact-info-section";
+import { OperatingHoursSection } from "@/components/contact/operating-hours-section";
 import { CompanyMap } from "@/components/contact/company-map";
 import { WhatsAppClickButton } from "@/components/contact/whatsapp-click-button";
 import { Button } from "@/components/ui/button";
@@ -203,6 +204,9 @@ export default function ContactPage() {
             <ContactForm />
           </div>
         </div>
+
+        {/* Weekly Operating Hours Section */}
+        <OperatingHoursSection />
 
         {/* Company Location Map Section */}
         <CompanyMap />
