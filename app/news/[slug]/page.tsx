@@ -5,6 +5,7 @@ import Image from "next/image";
 import { newsData } from "@/data/news";
 import { companyData } from "@/data/company";
 import { NewsCard } from "@/components/news/news-card";
+import { NewsGallery } from "@/components/news/news-gallery";
 import { Button } from "@/components/ui/button";
 import {
   Calendar,
@@ -223,33 +224,7 @@ export default async function NewsDetailPage({
       </article>
 
       {/* Photo Gallery Grid (if available) */}
-      {article.gallery && article.gallery.length > 0 && (
-        <section aria-label="Galeri Foto Pameran" className="space-y-6 pt-6 border-t">
-          <div className="flex items-center gap-2">
-            <ImageIcon className="h-5 w-5 text-primary" />
-            <h2 className="text-2xl font-bold text-foreground">
-              Dokumentasi Foto Kegiatan Pameran
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {article.gallery.map((imgSrc, idx) => (
-              <div
-                key={idx}
-                className="relative h-56 rounded-2xl border overflow-hidden bg-muted group shadow-sm hover:shadow-md transition-all hover:border-primary/40"
-              >
-                <Image
-                  src={imgSrc}
-                  alt={`Dokumentasi ${article.title} foto #${idx + 1}`}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
+      <NewsGallery title={article.title} gallery={article.gallery || []} />
 
       {/* Share & Consultation Row */}
       <div className="rounded-3xl border bg-muted/40 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4">
