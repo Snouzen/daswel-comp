@@ -22,39 +22,30 @@ export function NewsCard({ article, delay = 0 }: NewsCardProps) {
       className="flex flex-col rounded-3xl border bg-card overflow-hidden shadow-sm hover:shadow-xl transition-all hover:border-primary/40 group"
     >
       {/* Visual Media Header / Thumbnail */}
-      <div className="relative h-60 sm:h-72 w-full overflow-hidden bg-muted">
-        {article.video ? (
-          <video
-            src={article.video}
-            poster={article.image}
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-        ) : (
-          <Image
-            src={article.image}
-            alt={article.title}
-            fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-        )}
+      <Link
+        href={`/news/${article.slug}`}
+        className="relative h-60 sm:h-72 w-full overflow-hidden bg-muted block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+      >
+        <Image
+          src={article.image}
+          alt={article.title}
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-cover group-hover:scale-105 transition-transform duration-500"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-50" />
         <div className="absolute top-4 left-4 flex flex-wrap items-center gap-2">
           <span className="rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground shadow-sm">
             {article.category}
           </span>
           {article.video && (
-            <span className="inline-flex items-center gap-1 rounded-full bg-black/70 backdrop-blur-sm px-2.5 py-1 text-[11px] font-medium text-white shadow-sm">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-black/70 backdrop-blur-sm px-2.5 py-1 text-[11px] font-medium text-white shadow-sm">
               <Video className="h-3 w-3 text-primary" />
               <span>Video Dokumentasi</span>
             </span>
           )}
         </div>
-      </div>
+      </Link>
 
       {/* Content */}
       <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-6">

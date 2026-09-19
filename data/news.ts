@@ -29,8 +29,8 @@ export const newsData: NewsItem[] = [
       "Dengan keberhasilan partisipasi ini, Daswel Company siap memperkuat dukungan purna jual, ketersediaan suku cadang resmi, serta layanan pendampingan teknis bagi seluruh mitra di seluruh pelosok tanah air.",
     ],
     author: "Tim Media Daswel",
-    image: "/images/Inagritech 2025/Inagritech (1).jpeg",
-    video: "/images/Inagritech 2025/Inagritech.mp4",
+    image: "/images/Inagritech 2025/Inagritech (5).jpeg",
+    video: "/images/Inagritech 2025/Video Inagritech 2025.mp4",
     category: "Pameran & Ekshibisi",
     gallery: [
       "/images/Inagritech 2025/Inagritech (1).jpeg",
