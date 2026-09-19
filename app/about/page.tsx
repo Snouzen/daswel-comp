@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { companyData } from "@/data/company";
 import { AboutCompanySection } from "@/components/about/about-company-section";
 import { AboutAndFeaturesSection } from "@/components/home/about-and-features-section";
@@ -81,19 +82,36 @@ export default function AboutPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div className="flex flex-col space-y-20 sm:space-y-24 py-10 sm:py-16">
-        {/* Page Header */}
+        {/* Page Header Hero Banner */}
         <header className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-              <Building2 className="h-3.5 w-3.5" />
-              <span>Profil Perusahaan</span>
+          <div className="relative overflow-hidden rounded-3xl border border-border/50 shadow-xl min-h-[380px] sm:min-h-[440px] flex items-center p-6 sm:p-12 lg:p-16">
+            {/* Background Image with priority loading */}
+            <Image
+              src="/images/daswell-bg-img.png"
+              alt={`Latar Belakang Profil ${companyData.name}`}
+              fill
+              priority
+              className="object-cover object-[center_right] sm:object-center"
+              sizes="(max-width: 1280px) 100vw, 1280px"
+            />
+
+            {/* Gradient Overlays for optimal readability across mobile and desktop */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-black/35 sm:from-black/90 sm:via-black/70 sm:to-black/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent sm:hidden" />
+
+            {/* Content Container */}
+            <div className="relative z-10 max-w-2xl space-y-4 text-white">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/40 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur-md shadow-sm">
+                <Building2 className="h-3.5 w-3.5 text-primary" />
+                <span>Profil Perusahaan</span>
+              </div>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight drop-shadow-md">
+                Tentang {companyData.name}
+              </h1>
+              <p className="text-white/90 text-sm sm:text-base lg:text-lg leading-relaxed drop-shadow font-normal max-w-xl">
+                Membangun fondasi masa depan industri dengan dedikasi teknik terdepan, integritas kemitraan, dan solusi peralatan konstruksi berstandar global.
+              </p>
             </div>
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-foreground">
-              Tentang {companyData.name}
-            </h1>
-            <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-              Membangun fondasi masa depan industri dengan dedikasi teknik terdepan, integritas kemitraan, dan solusi peralatan konstruksi berstandar global.
-            </p>
           </div>
         </header>
 
