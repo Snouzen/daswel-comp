@@ -159,6 +159,8 @@ export function GalleryLightbox({
                       sizes="(max-width: 1280px) 100vw, 1200px"
                       className="object-contain"
                       priority
+                      placeholder="blur"
+                      blurDataURL="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='100%25' height='100%25' fill='%231f2937'/%3E%3C/svg%3E"
                     />
                   </motion.div>
                 </AnimatePresence>

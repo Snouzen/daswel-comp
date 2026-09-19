@@ -1,9 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import type { GalleryItem } from "@/data/gallery";
 import { Maximize2, Layers, MapPin, Calendar } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface GalleryCardProps {
   item: GalleryItem;
@@ -11,7 +13,13 @@ interface GalleryCardProps {
   onClick: () => void;
 }
 
+// Low-overhead SVG blur placeholder data URL
+const blurDataURL =
+  "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGaussianBlur stdDeviation='20'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' fill='%23cbd5e1' filter='url(%23b)'/%3E%3C/svg%3E";
+
 export function GalleryCard({ item, index, onClick }: GalleryCardProps) {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   return (
     <motion.figure
       layout
@@ -31,20 +39,26 @@ export function GalleryCard({ item, index, onClick }: GalleryCardProps) {
       }}
       aria-label={`Lihat detail foto ${item.title} - ${item.category}`}
     >
-      {/* Responsive Next/Image Container */}
+      {/* Responsive Next/Image Container with Blur Placeholder & Lazy Loading */}
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted">
         <Image
           src={item.image}
           alt={`${item.title} (${item.category}) - ${item.description}`}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          loading={index < 6 ? "eager" : "lazy"}
-          priority={index < 3}
-          className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+          loading={index < 3 ? "eager" : "lazy"}
+          priority={index < 2}
+          placeholder="blur"
+          blurDataURL={blurDataURL}
+          onLoad={() => setIsLoaded(true)}
+          className={cn(
+            "object-cover transition-all duration-500 ease-out group-hover:scale-105",
+            isLoaded ? "blur-0 opacity-100 scale-100" : "blur-sm opacity-80 scale-105"
+          )}
         />
 
         {/* Dark Gradient Overlay with Action Hint */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 pointer-events-none">
           <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-black/60 backdrop-blur-sm px-3 py-1.5 rounded-lg shadow-md">
             <Maximize2 className="h-3.5 w-3.5" />
             Tampilkan Foto Penuh
