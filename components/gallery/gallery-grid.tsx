@@ -13,6 +13,7 @@ interface GalleryGridProps {
 export function GalleryGrid({ items }: GalleryGridProps) {
   const [selectedCategory, setSelectedCategory] = useState<GalleryCategory>("Semua");
   const [activePhotoIndex, setActivePhotoIndex] = useState<number | null>(null);
+  const [slideDirection, setSlideDirection] = useState<number>(0);
 
   const filteredItems =
     selectedCategory === "Semua"
@@ -24,6 +25,7 @@ export function GalleryGrid({ items }: GalleryGridProps) {
 
   const handleNext = useCallback(() => {
     if (activePhotoIndex !== null) {
+      setSlideDirection(1);
       setActivePhotoIndex((prev) =>
         prev !== null ? (prev + 1) % filteredItems.length : null
       );
@@ -32,6 +34,7 @@ export function GalleryGrid({ items }: GalleryGridProps) {
 
   const handlePrev = useCallback(() => {
     if (activePhotoIndex !== null) {
+      setSlideDirection(-1);
       setActivePhotoIndex((prev) =>
         prev !== null ? (prev - 1 + filteredItems.length) % filteredItems.length : null
       );
@@ -40,11 +43,17 @@ export function GalleryGrid({ items }: GalleryGridProps) {
 
   const handleClose = useCallback(() => {
     setActivePhotoIndex(null);
+    setSlideDirection(0);
   }, []);
+
+  const handleOpenPhoto = (index: number) => {
+    setSlideDirection(0);
+    setActivePhotoIndex(index);
+  };
 
   return (
     <div className="space-y-8">
-      {/* Category Filter Navigation */}
+      {/* Animated Category Filter Navigation with Framer Motion layoutId */}
       <div className="flex flex-wrap items-center gap-2">
         {galleryCategories.map((category) => {
           const isActive = selectedCategory === category;
@@ -60,18 +69,25 @@ export function GalleryGrid({ items }: GalleryGridProps) {
                 setSelectedCategory(category);
                 setActivePhotoIndex(null);
               }}
-              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 ${
+              className={`relative inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors duration-200 z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
                 isActive
-                  ? "bg-primary text-primary-foreground shadow-md shadow-primary/25 scale-105"
-                  : "bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground"
+                  ? "text-primary-foreground font-semibold"
+                  : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
               }`}
             >
+              {isActive && (
+                <motion.span
+                  layoutId="activeCategoryPill"
+                  className="absolute inset-0 rounded-full bg-primary shadow-md shadow-primary/25 -z-10"
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                />
+              )}
               <span>{category}</span>
               <span
-                className={`text-[10px] px-1.5 py-0.5 rounded-full ${
+                className={`text-[10px] px-1.5 py-0.5 rounded-full transition-colors ${
                   isActive
                     ? "bg-white/20 text-white font-bold"
-                    : "bg-background/80 text-muted-foreground"
+                    : "bg-muted text-muted-foreground"
                 }`}
               >
                 {count}
@@ -81,7 +97,7 @@ export function GalleryGrid({ items }: GalleryGridProps) {
         })}
       </div>
 
-      {/* Gallery Items Grid */}
+      {/* Gallery Items Grid with Smooth Layout Animation */}
       <motion.div
         layout
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
@@ -92,17 +108,18 @@ export function GalleryGrid({ items }: GalleryGridProps) {
               key={item.id}
               item={item}
               index={index}
-              onClick={() => setActivePhotoIndex(index)}
+              onClick={() => handleOpenPhoto(index)}
             />
           ))}
         </AnimatePresence>
       </motion.div>
 
-      {/* Lightbox Modal (Tampilan Foto Besar) */}
+      {/* Lightbox Modal with Framer Motion Transitions */}
       <GalleryLightbox
         item={activePhoto}
         currentIndex={activePhotoIndex ?? 0}
         totalItems={filteredItems.length}
+        direction={slideDirection}
         onClose={handleClose}
         onNext={handleNext}
         onPrev={handlePrev}

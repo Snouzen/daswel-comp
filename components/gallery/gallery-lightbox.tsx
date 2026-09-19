@@ -2,7 +2,7 @@
 
 import { useEffect, useCallback, useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 import type { GalleryItem } from "@/data/gallery";
 import { companyData } from "@/data/company";
 import {
@@ -21,16 +21,45 @@ interface GalleryLightboxProps {
   item: GalleryItem | null;
   currentIndex: number;
   totalItems: number;
+  direction?: number;
   onClose: () => void;
   onNext: () => void;
   onPrev: () => void;
   onSelectIndex?: (index: number) => void;
 }
 
+const slideVariants: Variants = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? 100 : direction < 0 ? -100 : 0,
+    opacity: 0,
+    scale: 0.95,
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+    scale: 1,
+    transition: {
+      x: { type: "spring" as const, stiffness: 350, damping: 30 },
+      opacity: { duration: 0.2 },
+      scale: { duration: 0.2 },
+    },
+  },
+  exit: (direction: number) => ({
+    x: direction > 0 ? -100 : direction < 0 ? 100 : 0,
+    opacity: 0,
+    scale: 0.95,
+    transition: {
+      x: { type: "spring" as const, stiffness: 350, damping: 30 },
+      opacity: { duration: 0.15 },
+    },
+  }),
+};
+
 export function GalleryLightbox({
   item,
   currentIndex,
   totalItems,
+  direction = 0,
   onClose,
   onNext,
   onPrev,
@@ -38,7 +67,6 @@ export function GalleryLightbox({
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
-  // Minimum swipe distance in px
   const minSwipeDistance = 50;
 
   const onTouchStart = (e: React.TouchEvent) => {
@@ -94,19 +122,23 @@ export function GalleryLightbox({
   return (
     <AnimatePresence>
       {item && (
-        <div
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
           role="dialog"
           aria-modal="true"
           aria-label={`Tampilan foto besar ${item.title}`}
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-2 sm:p-6"
           onClick={onClose}
         >
-          {/* Main Modal Container */}
+          {/* Main Modal Container with Spring Pop Animation */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.93, y: 10 }}
+            initial={{ opacity: 0, scale: 0.92, y: 15 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.93, y: 10 }}
-            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+            exit={{ opacity: 0, scale: 0.92, y: 15 }}
+            transition={{ type: "spring", damping: 28, stiffness: 350 }}
             className="relative max-w-5xl w-full max-h-[95vh] flex flex-col rounded-2xl bg-card border border-border/80 overflow-hidden shadow-2xl"
             onClick={(e) => e.stopPropagation()}
             onTouchStart={onTouchStart}
@@ -129,27 +161,30 @@ export function GalleryLightbox({
                 <span className="text-xs font-medium text-muted-foreground px-2 py-0.5 rounded-md bg-muted/70">
                   {currentIndex + 1} / {totalItems}
                 </span>
-                <button
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
                   onClick={onClose}
                   className="p-1.5 sm:p-2 rounded-full hover:bg-muted text-muted-foreground hover:text-foreground transition-colors"
                   aria-label="Tutup jendela pratinjau foto (Esc)"
                 >
                   <X className="h-5 w-5" />
-                </button>
+                </motion.button>
               </div>
             </div>
 
             {/* Semantic Figure Wrapper */}
             <figure className="flex flex-col flex-1 min-h-0 m-0">
-              {/* Big Photo Stage with Next/Prev Buttons */}
+              {/* Big Photo Stage with Direction-based Slide Animation */}
               <div className="relative flex-1 min-h-[340px] sm:min-h-[500px] bg-black flex items-center justify-center select-none overflow-hidden group">
-                <AnimatePresence mode="wait">
+                <AnimatePresence custom={direction} mode="wait">
                   <motion.div
                     key={item.id}
-                    initial={{ opacity: 0, scale: 0.98 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.98 }}
-                    transition={{ duration: 0.18 }}
+                    custom={direction}
+                    variants={slideVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
                     className="relative w-full h-full min-h-[340px] sm:min-h-[500px]"
                   >
                     <Image
@@ -165,39 +200,43 @@ export function GalleryLightbox({
                   </motion.div>
                 </AnimatePresence>
 
-                {/* Navigation Controls (Prev / Next) */}
+                {/* Navigation Controls with Framer Motion Tap/Hover */}
                 {totalItems > 1 && (
                   <>
-                    <button
+                    <motion.button
+                      whileHover={{ scale: 1.15, backgroundColor: "var(--primary)" }}
+                      whileTap={{ scale: 0.9 }}
                       onClick={(e) => {
                         e.stopPropagation();
                         onPrev();
                       }}
-                      className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-2.5 sm:p-3.5 rounded-full bg-black/60 hover:bg-primary text-white transition-all duration-200 backdrop-blur-md shadow-xl hover:scale-110 active:scale-95 z-10"
+                      className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-2.5 sm:p-3.5 rounded-full bg-black/60 text-white transition-colors backdrop-blur-md shadow-xl z-10"
                       aria-label="Foto sebelumnya (Panah Kiri / Geser Kanan)"
                       title="Foto sebelumnya (Panah Kiri)"
                     >
                       <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
-                    </button>
+                    </motion.button>
 
-                    <button
+                    <motion.button
+                      whileHover={{ scale: 1.15, backgroundColor: "var(--primary)" }}
+                      whileTap={{ scale: 0.9 }}
                       onClick={(e) => {
                         e.stopPropagation();
                         onNext();
                       }}
-                      className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-2.5 sm:p-3.5 rounded-full bg-black/60 hover:bg-primary text-white transition-all duration-200 backdrop-blur-md shadow-xl hover:scale-110 active:scale-95 z-10"
+                      className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-2.5 sm:p-3.5 rounded-full bg-black/60 text-white transition-colors backdrop-blur-md shadow-xl z-10"
                       aria-label="Foto berikutnya (Panah Kanan / Geser Kiri)"
                       title="Foto berikutnya (Panah Kanan)"
                     >
                       <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
-                    </button>
+                    </motion.button>
                   </>
                 )}
               </div>
 
-              {/* Semantic Figcaption (Keterangan Foto Lengkap di Lightbox) */}
+              {/* Semantic Figcaption */}
               <figcaption className="px-4 sm:px-6 py-3.5 border-t bg-card flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 shrink-0">
-                <div className="space-y-1.5 max-w-2xl">
+                <div className="space-y-1 max-w-2xl">
                   <div className="flex items-center gap-1.5 text-xs font-semibold text-primary">
                     <Info className="h-3.5 w-3.5" />
                     <span>Keterangan Unit & Dokumentasi</span>
@@ -237,7 +276,7 @@ export function GalleryLightbox({
               </figcaption>
             </figure>
           </motion.div>
-        </div>
+        </motion.div>
       )}
     </AnimatePresence>
   );

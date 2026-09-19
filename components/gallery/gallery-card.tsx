@@ -13,7 +13,6 @@ interface GalleryCardProps {
   onClick: () => void;
 }
 
-// Low-overhead SVG blur placeholder data URL
 const blurDataURL =
   "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGaussianBlur stdDeviation='20'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' fill='%23cbd5e1' filter='url(%23b)'/%3E%3C/svg%3E";
 
@@ -23,11 +22,13 @@ export function GalleryCard({ item, index, onClick }: GalleryCardProps) {
   return (
     <motion.figure
       layout
-      initial={{ opacity: 0, y: 15 }}
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.3, delay: Math.min(index * 0.05, 0.4) }}
-      className="group cursor-pointer rounded-2xl overflow-hidden border bg-card text-card-foreground shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary m-0"
+      exit={{ opacity: 0, scale: 0.92 }}
+      whileHover={{ y: -6, transition: { duration: 0.25, ease: "easeOut" } }}
+      whileTap={{ scale: 0.98 }}
+      transition={{ duration: 0.35, delay: Math.min(index * 0.04, 0.3) }}
+      className="group cursor-pointer rounded-2xl overflow-hidden border bg-card text-card-foreground shadow-sm hover:shadow-2xl transition-shadow duration-300 flex flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary m-0"
       onClick={onClick}
       role="button"
       tabIndex={0}
@@ -39,7 +40,7 @@ export function GalleryCard({ item, index, onClick }: GalleryCardProps) {
       }}
       aria-label={`Lihat detail foto ${item.title} - ${item.category}`}
     >
-      {/* Responsive Next/Image Container with Blur Placeholder & Lazy Loading */}
+      {/* Responsive Next/Image Container with Blur Placeholder & Smooth Framer Motion Hover */}
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted">
         <Image
           src={item.image}
@@ -52,18 +53,23 @@ export function GalleryCard({ item, index, onClick }: GalleryCardProps) {
           blurDataURL={blurDataURL}
           onLoad={() => setIsLoaded(true)}
           className={cn(
-            "object-cover transition-all duration-500 ease-out group-hover:scale-105",
+            "object-cover transition-all duration-500 ease-out group-hover:scale-108",
             isLoaded ? "blur-0 opacity-100 scale-100" : "blur-sm opacity-80 scale-105"
           )}
         />
 
-        {/* Dark Gradient Overlay with Action Hint */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 pointer-events-none">
+        {/* Dark Gradient Overlay with Animated Action Hint */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileHover={{ opacity: 1 }}
+          transition={{ duration: 0.2 }}
+          className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent flex items-end p-4 pointer-events-none"
+        >
           <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-black/60 backdrop-blur-sm px-3 py-1.5 rounded-lg shadow-md">
-            <Maximize2 className="h-3.5 w-3.5" />
+            <Maximize2 className="h-3.5 w-3.5 text-primary-foreground" />
             Tampilkan Foto Penuh
           </span>
-        </div>
+        </motion.div>
 
         {/* Category Pill Tag */}
         <div className="absolute top-3 left-3">
