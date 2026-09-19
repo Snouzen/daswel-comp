@@ -42,14 +42,14 @@ export default function HomePage() {
       {/* Sambutan Utama (Hero) */}
       <HeroSection />
 
-      {/* Tentang Perusahaan & Keunggulan */}
-      <AboutAndFeaturesSection />
-
       {/* Sorotan Produk */}
       <FeaturedProductsSection />
 
       {/* Kabar Terbaru */}
       <LatestNewsSection />
+
+      {/* Tentang Perusahaan & Keunggulan */}
+      <AboutAndFeaturesSection />
 
       {/* Hubungi Kami / CTA WhatsApp */}
       <CtaSection />
