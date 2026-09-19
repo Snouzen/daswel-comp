@@ -13,6 +13,7 @@ import {
   MapPin,
   Calendar,
   Layers,
+  Info,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -138,94 +139,101 @@ export function GalleryLightbox({
               </div>
             </div>
 
-            {/* Big Photo Stage with Next/Prev Buttons */}
-            <div className="relative flex-1 min-h-[340px] sm:min-h-[500px] bg-black flex items-center justify-center select-none overflow-hidden group">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={item.id}
-                  initial={{ opacity: 0, scale: 0.98 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.98 }}
-                  transition={{ duration: 0.18 }}
-                  className="relative w-full h-full min-h-[340px] sm:min-h-[500px]"
-                >
-                  <Image
-                    src={item.image}
-                    alt={`${item.title} - ${item.description}`}
-                    fill
-                    sizes="(max-width: 1280px) 100vw, 1200px"
-                    className="object-contain"
-                    priority
-                  />
-                </motion.div>
-              </AnimatePresence>
-
-              {/* Navigation Controls (Prev / Next) */}
-              {totalItems > 1 && (
-                <>
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      onPrev();
-                    }}
-                    className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-2.5 sm:p-3.5 rounded-full bg-black/60 hover:bg-primary text-white transition-all duration-200 backdrop-blur-md shadow-xl hover:scale-110 active:scale-95 z-10"
-                    aria-label="Foto sebelumnya (Panah Kiri / Geser Kanan)"
-                    title="Foto sebelumnya (Panah Kiri)"
+            {/* Semantic Figure Wrapper */}
+            <figure className="flex flex-col flex-1 min-h-0 m-0">
+              {/* Big Photo Stage with Next/Prev Buttons */}
+              <div className="relative flex-1 min-h-[340px] sm:min-h-[500px] bg-black flex items-center justify-center select-none overflow-hidden group">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={item.id}
+                    initial={{ opacity: 0, scale: 0.98 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.98 }}
+                    transition={{ duration: 0.18 }}
+                    className="relative w-full h-full min-h-[340px] sm:min-h-[500px]"
                   >
-                    <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
-                  </button>
+                    <Image
+                      src={item.image}
+                      alt={`${item.title} - ${item.description}`}
+                      fill
+                      sizes="(max-width: 1280px) 100vw, 1200px"
+                      className="object-contain"
+                      priority
+                    />
+                  </motion.div>
+                </AnimatePresence>
 
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      onNext();
-                    }}
-                    className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-2.5 sm:p-3.5 rounded-full bg-black/60 hover:bg-primary text-white transition-all duration-200 backdrop-blur-md shadow-xl hover:scale-110 active:scale-95 z-10"
-                    aria-label="Foto berikutnya (Panah Kanan / Geser Kiri)"
-                    title="Foto berikutnya (Panah Kanan)"
-                  >
-                    <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
-                  </button>
-                </>
-              )}
-            </div>
+                {/* Navigation Controls (Prev / Next) */}
+                {totalItems > 1 && (
+                  <>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onPrev();
+                      }}
+                      className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-2.5 sm:p-3.5 rounded-full bg-black/60 hover:bg-primary text-white transition-all duration-200 backdrop-blur-md shadow-xl hover:scale-110 active:scale-95 z-10"
+                      aria-label="Foto sebelumnya (Panah Kiri / Geser Kanan)"
+                      title="Foto sebelumnya (Panah Kiri)"
+                    >
+                      <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
+                    </button>
 
-            {/* Bottom Caption & Action Footer */}
-            <div className="px-4 sm:px-6 py-3.5 border-t bg-card flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 shrink-0">
-              <div className="space-y-1 max-w-2xl">
-                <p className="text-xs sm:text-sm text-foreground leading-relaxed">
-                  {item.description}
-                </p>
-                <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs text-muted-foreground">
-                  {item.location && (
-                    <span className="inline-flex items-center gap-1">
-                      <MapPin className="h-3.5 w-3.5 text-primary" />
-                      {item.location}
-                    </span>
-                  )}
-                  {item.date && (
-                    <span className="inline-flex items-center gap-1">
-                      <Calendar className="h-3.5 w-3.5 text-muted-foreground" />
-                      Tahun {item.date}
-                    </span>
-                  )}
-                </div>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onNext();
+                      }}
+                      className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-2.5 sm:p-3.5 rounded-full bg-black/60 hover:bg-primary text-white transition-all duration-200 backdrop-blur-md shadow-xl hover:scale-110 active:scale-95 z-10"
+                      aria-label="Foto berikutnya (Panah Kanan / Geser Kiri)"
+                      title="Foto berikutnya (Panah Kanan)"
+                    >
+                      <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
+                    </button>
+                  </>
+                )}
               </div>
 
-              {/* Inquiry Action */}
-              <Button asChild size="sm" className="gap-2 shrink-0 w-full sm:w-auto shadow-md">
-                <a
-                  href={`https://wa.me/${companyData.whatsapp}?text=${encodeURIComponent(
-                    `Halo ${companyData.name}, saya melihat unit ${item.title} (${item.category}) di Galeri Foto website Anda. Mohon info ketersediaan stok, spesifikasi, dan penawaran harganya.`
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <MessageCircle className="h-4 w-4" />
-                  Konsultasi Unit Ini
-                </a>
-              </Button>
-            </div>
+              {/* Semantic Figcaption (Keterangan Foto Lengkap di Lightbox) */}
+              <figcaption className="px-4 sm:px-6 py-3.5 border-t bg-card flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 shrink-0">
+                <div className="space-y-1.5 max-w-2xl">
+                  <div className="flex items-center gap-1.5 text-xs font-semibold text-primary">
+                    <Info className="h-3.5 w-3.5" />
+                    <span>Keterangan Unit & Dokumentasi</span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-foreground leading-relaxed">
+                    {item.description}
+                  </p>
+                  <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs text-muted-foreground pt-0.5">
+                    {item.location && (
+                      <span className="inline-flex items-center gap-1">
+                        <MapPin className="h-3.5 w-3.5 text-primary" />
+                        {item.location}
+                      </span>
+                    )}
+                    {item.date && (
+                      <span className="inline-flex items-center gap-1">
+                        <Calendar className="h-3.5 w-3.5 text-muted-foreground" />
+                        Tahun {item.date}
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                {/* Inquiry Action */}
+                <Button asChild size="sm" className="gap-2 shrink-0 w-full sm:w-auto shadow-md">
+                  <a
+                    href={`https://wa.me/${companyData.whatsapp}?text=${encodeURIComponent(
+                      `Halo ${companyData.name}, saya melihat unit ${item.title} (${item.category}) di Galeri Foto website Anda. Mohon info ketersediaan stok, spesifikasi, dan penawaran harganya.`
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <MessageCircle className="h-4 w-4" />
+                    Konsultasi Unit Ini
+                  </a>
+                </Button>
+              </figcaption>
+            </figure>
           </motion.div>
         </div>
       )}

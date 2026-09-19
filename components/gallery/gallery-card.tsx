@@ -13,13 +13,13 @@ interface GalleryCardProps {
 
 export function GalleryCard({ item, index, onClick }: GalleryCardProps) {
   return (
-    <motion.article
+    <motion.figure
       layout
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.3, delay: Math.min(index * 0.05, 0.4) }}
-      className="group cursor-pointer rounded-2xl overflow-hidden border bg-card text-card-foreground shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+      className="group cursor-pointer rounded-2xl overflow-hidden border bg-card text-card-foreground shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary m-0"
       onClick={onClick}
       role="button"
       tabIndex={0}
@@ -60,8 +60,8 @@ export function GalleryCard({ item, index, onClick }: GalleryCardProps) {
         </div>
       </div>
 
-      {/* Information Details */}
-      <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-3">
+      {/* Semantic Figcaption (Keterangan Foto di Grid) */}
+      <figcaption className="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-3">
         <div className="space-y-1.5">
           <h3 className="font-bold text-base sm:text-lg text-foreground group-hover:text-primary transition-colors line-clamp-1">
             {item.title}
@@ -87,7 +87,7 @@ export function GalleryCard({ item, index, onClick }: GalleryCardProps) {
             </span>
           )}
         </div>
-      </div>
-    </motion.article>
+      </figcaption>
+    </motion.figure>
   );
 }
