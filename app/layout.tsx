@@ -73,19 +73,28 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     name: companyData.name,
+    legalName: companyData.name,
     url: "https://daswel.com",
+    logo: "https://daswel.com/images/logo.png",
+    image: "https://daswel.com/images/logo.png",
     description: companyData.description,
+    email: companyData.email,
+    telephone: companyData.phone,
     address: {
       "@type": "PostalAddress",
       streetAddress: companyData.address,
+      addressLocality: "Jakarta",
       addressCountry: "ID",
     },
-    contactPoint: {
-      "@type": "ContactPoint",
-      telephone: companyData.phone,
-      contactType: "customer service",
-      availableLanguage: ["Indonesian", "English"],
-    },
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: companyData.phone,
+        contactType: "sales & customer support",
+        availableLanguage: ["Indonesian", "English"],
+      },
+    ],
+    sameAs: [companyData.whatsappUrl],
   };
 
   return (
