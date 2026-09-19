@@ -16,6 +16,7 @@ import {
   Layers,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { GalleryCard } from "@/components/gallery/gallery-card";
 
 interface GalleryGridProps {
   items: GalleryItem[];
@@ -120,76 +121,16 @@ export function GalleryGrid({ items }: GalleryGridProps) {
       {/* Gallery Items Grid */}
       <motion.div
         layout
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
       >
-        <AnimatePresence>
+        <AnimatePresence mode="popLayout">
           {filteredItems.map((item, index) => (
-            <motion.div
+            <GalleryCard
               key={item.id}
-              layout
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.25 }}
-              className="group cursor-pointer rounded-2xl overflow-hidden border bg-card text-card-foreground shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col"
+              item={item}
+              index={index}
               onClick={() => setActivePhotoIndex(index)}
-            >
-              {/* Photo Frame */}
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted">
-                <Image
-                  src={item.image}
-                  alt={`${item.title} - ${item.description}`}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-
-                {/* Dark Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-black/50 backdrop-blur-sm px-2.5 py-1 rounded-md">
-                    <Maximize2 className="h-3.5 w-3.5" />
-                    Lihat Foto Besar
-                  </span>
-                </div>
-
-                {/* Category Badge */}
-                <div className="absolute top-3 left-3">
-                  <span className="inline-flex items-center gap-1 text-[11px] font-semibold bg-background/90 text-foreground backdrop-blur-md px-2.5 py-1 rounded-full shadow-sm border">
-                    <Layers className="h-3 w-3 text-primary" />
-                    {item.category}
-                  </span>
-                </div>
-              </div>
-
-              {/* Photo Information */}
-              <div className="p-4 flex-1 flex flex-col justify-between space-y-3">
-                <div className="space-y-1.5">
-                  <h3 className="font-bold text-base text-foreground group-hover:text-primary transition-colors line-clamp-1">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs text-muted-foreground line-clamp-2 leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-
-                <div className="flex items-center justify-between text-[11px] text-muted-foreground pt-2 border-t">
-                  {item.location ? (
-                    <span className="inline-flex items-center gap-1 truncate max-w-[180px]">
-                      <MapPin className="h-3 w-3 text-primary shrink-0" />
-                      <span className="truncate">{item.location}</span>
-                    </span>
-                  ) : (
-                    <span>Daswel Heavy Equipment</span>
-                  )}
-                  {item.date && (
-                    <span className="inline-flex items-center gap-1 shrink-0">
-                      <Calendar className="h-3 w-3" />
-                      {item.date}
-                    </span>
-                  )}
-                </div>
-              </div>
-            </motion.div>
+            />
           ))}
         </AnimatePresence>
       </motion.div>
