@@ -18,7 +18,7 @@ export function CompanyMap() {
     }
   };
 
-  const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(`${companyData.name} ${companyData.address}`);
+  const googleMapsUrl = companyData.googleMapsUrl || "https://maps.app.goo.gl/J2t8xx7rRpfom4CW9";
 
   return (
     <section id="map-section" aria-label="Peta Lokasi dan Kantor Perusahaan" className="space-y-6 pt-2">

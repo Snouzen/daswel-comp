@@ -9,21 +9,21 @@ import { NewsCard } from "@/components/news/news-card";
 export const metadata: Metadata = {
   title: "Berita & Liputan Dokumentasi Pameran",
   description:
-    "Ikuti publikasi resmi, dokumentasi video pameran industri, Inagritech 2025, dan Mining Expo 2025 dari Daswel Company.",
+    "Ikuti publikasi resmi, dokumentasi pameran industri, Mining Expo, dan Sawit Indonesia Expo dari Daswell Indonesia.",
   alternates: {
     canonical: "https://daswel.com/news",
   },
   openGraph: {
     title: `Berita & Dokumentasi Ekshibisi | ${companyData.name}`,
     description:
-      "Dokumentasi kehadiran Daswel Company di Inagritech 2025 dan Mining Expo 2025 serta inovasi peralatan manufaktur terbaru.",
+      "Dokumentasi kehadiran Daswell Indonesia di Mining Expo dan Sawit Indonesia Expo serta inovasi peralatan manufaktur dan alat berat.",
     url: "https://daswel.com/news",
     siteName: companyData.name,
     locale: "id_ID",
     type: "website",
     images: [
       {
-        url: "https://daswel.com/images/Mining Expo 2025/thumbnail.jpeg",
+        url: "https://daswel.com/images/Content/Artikel/Mining Expo 2024/Mining Expo September 2024/Exhibition (1).jpeg",
         width: 1200,
         height: 630,
         alt: `Dokumentasi Pameran Industri - ${companyData.name}`,
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `Berita & Dokumentasi Ekshibisi | ${companyData.name}`,
     description:
-      "Dokumentasi video Inagritech 2025 dan foto pameran Mining Expo 2025 Daswel Company.",
-    images: ["https://daswel.com/images/Mining Expo 2025/thumbnail.jpeg"],
+      "Dokumentasi video dan foto pameran Mining Expo dan Sawit Indonesia Expo Daswell Indonesia.",
+    images: ["https://daswel.com/images/Content/Artikel/Mining Expo 2024/Mining Expo September 2024/Exhibition (1).jpeg"],
   },
 };
 
@@ -57,7 +57,7 @@ export default function NewsPage() {
       </header>
 
       {/* News Articles Grid */}
-      <section aria-label="Daftar Artikel Berita" className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <section aria-label="Daftar Artikel Berita" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {newsData.map((article, idx) => (
           <NewsCard key={article.id} article={article} delay={idx * 0.1} />
         ))}

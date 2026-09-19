@@ -7,7 +7,7 @@ import { ArrowRight, Newspaper } from "lucide-react";
 import { NewsCard } from "@/components/news/news-card";
 
 export function LatestNewsSection() {
-  const latestNews = newsData.slice(0, 2);
+  const latestNews = newsData;
 
   return (
     <section className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -22,7 +22,7 @@ export function LatestNewsSection() {
             Berita & Aktivitas Perusahaan
           </h2>
           <p className="text-muted-foreground text-sm sm:text-base max-w-2xl">
-            Ikuti liputan pameran industri internasional, siaran pers resmi, dan wawasan operasional industri manufaktur.
+            Ikuti liputan pameran industri internasional, siaran pers resmi, dan dokumentasi aktivitas armada Daswell Indonesia.
           </p>
         </div>
         <Button asChild variant="outline" className="gap-2 shrink-0">
@@ -33,9 +33,9 @@ export function LatestNewsSection() {
       </div>
 
       {/* News Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {latestNews.map((news, idx) => (
-          <NewsCard key={news.id} article={news} delay={idx * 0.1} />
+          <NewsCard key={news.id} article={news} delay={idx * 0.08} />
         ))}
       </div>
     </section>

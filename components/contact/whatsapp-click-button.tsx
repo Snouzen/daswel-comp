@@ -16,7 +16,7 @@ interface WhatsAppClickButtonProps {
 }
 
 export function WhatsAppClickButton({
-  message = "Halo Daswel Company, saya ingin berkonsultasi mengenai unit dan layanan Anda.",
+  message = "Halo Daswell Indonesia, saya ingin berkonsultasi mengenai unit dan layanan Anda.",
   className,
   size = "md",
   variant = "default",
@@ -55,7 +55,7 @@ export function WhatsAppClickButton({
         variantClasses[variant],
         className
       )}
-      aria-label="Mulai percakapan langsung di WhatsApp Daswel Company"
+      aria-label="Mulai percakapan langsung di WhatsApp Daswell Indonesia"
     >
       {showPulse && (
         <span className="relative flex h-2.5 w-2.5 shrink-0">

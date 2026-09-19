@@ -11,16 +11,16 @@ import { MessageSquare } from "lucide-react";
 export const metadata: Metadata = {
   title: "Kontak Resmi & Lokasi Kantor",
   description:
-    "Hubungi Daswel Company untuk konsultasi teknis peralatan alat berat, permintaan penawaran harga resmi, layanan purna jual, atau kunjungi kantor kami.",
+    "Hubungi Daswell Indonesia untuk konsultasi teknis peralatan alat berat, permintaan penawaran harga resmi, layanan purna jual, atau kunjungi kantor kami.",
   keywords: [
-    "kontak daswel",
-    "alamat daswel company",
-    "nomor telepon daswel",
-    "whatsapp daswel",
+    "kontak daswell",
+    "alamat daswell indonesia",
+    "nomor telepon daswell",
+    "whatsapp daswell",
     "distributor alat berat jakarta",
     "layanan purna jual alat berat",
     "quotation harga alat berat",
-    "lokasi kantor daswel",
+    "lokasi kantor daswell cakung",
   ],
   alternates: {
     canonical: "https://daswel.com/contact",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `Kontak Resmi & Lokasi Kantor | ${companyData.name}`,
     description:
-      "Informasi kontak lengkap, alamat kantor resmi, jam layanan konsultasi, dan direct WhatsApp Daswel Company.",
+      "Informasi kontak lengkap, alamat kantor resmi di Green Sedayu Bizpark Cakung, jam layanan konsultasi, dan direct WhatsApp Daswell Indonesia.",
     url: "https://daswel.com/contact",
     siteName: companyData.name,
     locale: "id_ID",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `Kontak Resmi & Lokasi Kantor | ${companyData.name}`,
     description:
-      "Hubungi tim teknis dan representatif resmi Daswel Company untuk kebutuhan alat berat dan mesin industri.",
+      "Hubungi tim teknis dan representatif resmi Daswell Indonesia untuk kebutuhan alat berat dan mesin konstruksi.",
     images: ["https://daswel.com/images/logo.png"],
   },
 };
@@ -68,16 +68,17 @@ export default function ContactPage() {
     email: companyData.email,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Jl. Industri Raya No. 45, Kawasan Industri",
-      addressLocality: "Jakarta",
+      streetAddress:
+        "Green Sedayu Bizpark Cakung Blok GS 9 No. 35, RT.7/RW.6, Cakung Tim., Kec. Cakung",
+      addressLocality: "Jakarta Timur",
       addressRegion: "DKI Jakarta",
-      postalCode: "14450",
+      postalCode: "13910",
       addressCountry: "ID",
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: -6.2088,
-      longitude: 106.8456,
+      latitude: -6.1824,
+      longitude: 106.9535,
     },
     openingHoursSpecification: [
       {

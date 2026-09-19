@@ -6,6 +6,7 @@ import { newsData } from "@/data/news";
 import { companyData } from "@/data/company";
 import { NewsCard } from "@/components/news/news-card";
 import { NewsGallery } from "@/components/news/news-gallery";
+import { NewsVideoPlayer } from "@/components/news/news-video-player";
 import { Button } from "@/components/ui/button";
 import {
   Calendar,
@@ -83,7 +84,7 @@ export default async function NewsDetailPage({
     notFound();
   }
 
-  const otherArticles = newsData.filter((n) => n.slug !== slug);
+  const otherArticles = newsData.filter((n) => n.slug !== slug).slice(0, 2);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -170,27 +171,14 @@ export default async function NewsDetailPage({
 
       {/* Main Media Section */}
       <div className="space-y-3">
-        <div className="relative rounded-3xl border overflow-hidden bg-black shadow-lg">
-          {article.video ? (
-            <div className="relative aspect-video w-full">
-              <video
-                src={article.video}
-                poster={article.image}
-                controls
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute top-4 left-4 z-10 pointer-events-none">
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-black/75 backdrop-blur-md px-3 py-1 text-xs font-semibold text-white shadow-md">
-                  <Video className="h-3.5 w-3.5 text-primary" />
-                  <span>Video Liputan Resmi</span>
-                </span>
-              </div>
-            </div>
-          ) : (
+        {article.video ? (
+          <NewsVideoPlayer
+            src={article.video}
+            poster={article.image}
+            title={article.title}
+          />
+        ) : (
+          <div className="relative rounded-3xl border overflow-hidden bg-black shadow-lg">
             <div className="relative h-80 sm:h-[480px] w-full">
               <Image
                 src={article.image}
@@ -201,8 +189,8 @@ export default async function NewsDetailPage({
                 className="object-cover"
               />
             </div>
-          )}
-        </div>
+          </div>
+        )}
         <p className="text-xs text-muted-foreground text-center">
           {article.video
             ? `Dokumentasi video partisipasi ${companyData.name} dalam ajang ${article.title}`

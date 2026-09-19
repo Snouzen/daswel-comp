@@ -13,7 +13,7 @@ export interface ProductWhatsAppButtonProps {
 
 export function createProductWhatsAppUrl(productName: string): string {
   const text = `Halo ${companyData.name}, saya tertarik dengan ${productName} dan ingin menanyakan ketersediaan unit serta surat penawaran harga resmi. Mohon informasinya. Terima kasih.`;
-  return `https://wa.me/6281234567890?text=${encodeURIComponent(text)}`;
+  return `https://wa.me/6287885902289?text=${encodeURIComponent(text)}`;
 }
 
 export function ProductWhatsAppButton({

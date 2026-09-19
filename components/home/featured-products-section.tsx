@@ -38,7 +38,7 @@ export function FeaturedProductsSection() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {featuredProducts.map((product, idx) => {
           const specEntries = Object.entries(product.specifications).slice(0, 2);
-          const productWaUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(
+          const productWaUrl = `https://wa.me/6287885902289?text=${encodeURIComponent(
             `Halo ${companyData.name}, saya ingin konsultasi dan meminta penawaran harga untuk ${product.name}.`
           )}`;
 

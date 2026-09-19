@@ -3,7 +3,10 @@ import { companyData } from "@/data/company";
 import { HeroSection } from "@/components/home/hero-section";
 import { AboutAndFeaturesSection } from "@/components/home/about-and-features-section";
 import { FeaturedProductsSection } from "@/components/home/featured-products-section";
+import { IndustrialNeedsSection } from "@/components/home/industrial-needs-section";
 import { LatestNewsSection } from "@/components/home/latest-news-section";
+import { TestimonialsSection } from "@/components/home/testimonials-section";
+import { ClientLogosSection } from "@/components/home/client-logos-section";
 import { CtaSection } from "@/components/home/cta-section";
 
 export const metadata: Metadata = {
@@ -45,11 +48,20 @@ export default function HomePage() {
       {/* Sorotan Produk */}
       <FeaturedProductsSection />
 
+      {/* Kebutuhan Industri / Solusi Proyek */}
+      <IndustrialNeedsSection />
+
       {/* Kabar Terbaru */}
       <LatestNewsSection />
 
-      {/* Tentang Perusahaan & Keunggulan */}
+      {/* Tentang Perusahaan & Keunggulan (termasuk Fondasi Perusahaan) */}
       <AboutAndFeaturesSection />
+
+      {/* Testimonial Klien */}
+      <TestimonialsSection />
+
+      {/* Logo Cloud Klien & Mitra */}
+      <ClientLogosSection />
 
       {/* Hubungi Kami / CTA WhatsApp */}
       <CtaSection />
