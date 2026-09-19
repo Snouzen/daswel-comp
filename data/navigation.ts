@@ -7,6 +7,11 @@ export interface NavItem {
 
 export const mainNavItems: NavItem[] = [
   {
+    label: "Home",
+    href: "/",
+    description: "Beranda resmi dan profil perusahaan Daswel",
+  },
+  {
     label: "Product",
     href: "/products",
     description: "Katalog peralatan industri, genset, dan mesin manufaktur",

@@ -40,7 +40,10 @@ export function Navbar() {
         <nav aria-label="Navigasi Utama" className="hidden md:flex items-center">
           <ul className="flex items-center space-x-1 text-sm font-medium">
             {mainNavItems.map((link) => {
-              const isActive = pathname === link.href || pathname?.startsWith(link.href + "/");
+              const isActive =
+                link.href === "/"
+                  ? pathname === "/"
+                  : pathname === link.href || pathname?.startsWith(link.href + "/");
               return (
                 <li key={link.href}>
                   <Link
@@ -128,7 +131,10 @@ export function Navbar() {
             <nav aria-label="Navigasi Menu Mobile">
               <ul className="flex flex-col space-y-1.5">
                 {mainNavItems.map((link) => {
-                  const isActive = pathname === link.href || pathname?.startsWith(link.href + "/");
+                  const isActive =
+                    link.href === "/"
+                      ? pathname === "/"
+                      : pathname === link.href || pathname?.startsWith(link.href + "/");
                   return (
                     <li key={link.href}>
                       <Link
