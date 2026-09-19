@@ -1,28 +1,48 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { newsData } from "@/data/news";
 import { companyData } from "@/data/company";
-import { Calendar, User, ArrowRight, Newspaper, ArrowUpRight } from "lucide-react";
+import {
+  Calendar,
+  User,
+  ArrowRight,
+  Newspaper,
+  ArrowUpRight,
+  Video,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "Berita & Kabar Terbaru Perusahaan",
+  title: "Berita & Liputan Dokumentasi Pameran",
   description:
-    "Ikuti publikasi resmi, inovasi teknologi manufaktur, siaran pers, dan wawasan industri terbaru dari Daswel Company.",
+    "Ikuti publikasi resmi, dokumentasi video pameran industri, Inagritech 2025, dan Mining Expo 2025 dari Daswel Company.",
   alternates: {
     canonical: "https://daswel.com/news",
   },
   openGraph: {
-    title: `Berita & Publikasi Resmi | ${companyData.name}`,
+    title: `Berita & Dokumentasi Ekshibisi | ${companyData.name}`,
     description:
-      "Kabar terkini seputar aktivitas korporasi, riset efisiensi energi, dan teknologi peralatan industri.",
+      "Dokumentasi kehadiran Daswel Company di Inagritech 2025 dan Mining Expo 2025 serta inovasi peralatan manufaktur terbaru.",
     url: "https://daswel.com/news",
+    siteName: companyData.name,
+    locale: "id_ID",
+    type: "website",
+    images: [
+      {
+        url: "https://daswel.com/images/Mining Expo 2025/thumbnail.jpeg",
+        width: 1200,
+        height: 630,
+        alt: `Dokumentasi Pameran Industri - ${companyData.name}`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `Berita & Publikasi Resmi | ${companyData.name}`,
+    title: `Berita & Dokumentasi Ekshibisi | ${companyData.name}`,
     description:
-      "Wawasan industri dan berita perkembangan teknologi manufaktur terkini.",
+      "Dokumentasi video Inagritech 2025 dan foto pameran Mining Expo 2025 Daswel Company.",
+    images: ["https://daswel.com/images/Mining Expo 2025/thumbnail.jpeg"],
   },
 };
 
@@ -33,13 +53,13 @@ export default function NewsPage() {
       <header className="max-w-3xl space-y-4">
         <div className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
           <Newspaper className="h-3.5 w-3.5" />
-          <span>Publikasi Resmi</span>
+          <span>Publikasi & Dokumentasi</span>
         </div>
         <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-foreground">
-          Kabar & Wawasan Industri
+          Kabar & Liputan Pameran
         </h1>
         <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-          Menyajikan informasi terbaru terkait inovasi mesin manufaktur, riset efisiensi operasional, dan perkembangan bisnis {companyData.name}.
+          Dokumentasi resmi kehadiran {companyData.name} dalam pameran teknologi manufaktur, mekanisasi pertanian, dan industri pertambangan nasional.
         </p>
       </header>
 
@@ -48,30 +68,54 @@ export default function NewsPage() {
         {newsData.map((article) => (
           <article
             key={article.id}
-            className="flex flex-col rounded-3xl border bg-card overflow-hidden shadow-sm hover:shadow-lg transition-all hover:border-primary/40 group"
+            className="flex flex-col rounded-3xl border bg-card overflow-hidden shadow-sm hover:shadow-xl transition-all hover:border-primary/40 group"
           >
-            {/* Visual Header / Thumbnail */}
-            <div className="relative h-60 bg-gradient-to-br from-muted to-muted/60 flex flex-col items-center justify-center p-6 text-center">
-              <span className="absolute top-4 left-4 rounded-full bg-primary/90 px-3 py-1 text-xs font-semibold text-primary-foreground shadow-sm">
-                {article.category}
-              </span>
-              <Newspaper className="h-12 w-12 text-primary/60 group-hover:scale-110 transition-transform" />
-              <span className="mt-3 text-xs text-muted-foreground">
-                Thumbnail Artikel: {article.title}
-              </span>
+            {/* Visual Header / Thumbnail (Video or Image) */}
+            <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-muted">
+              {article.video ? (
+                <video
+                  src={article.video}
+                  poster={article.image}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              ) : (
+                <Image
+                  src={article.image}
+                  alt={article.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-50" />
+              <div className="absolute top-4 left-4 flex flex-wrap items-center gap-2">
+                <span className="rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground shadow-sm">
+                  {article.category}
+                </span>
+                {article.video && (
+                  <span className="inline-flex items-center gap-1 rounded-full bg-black/70 backdrop-blur-sm px-2.5 py-1 text-[11px] font-medium text-white shadow-sm">
+                    <Video className="h-3 w-3 text-primary" />
+                    <span>Video Dokumentasi</span>
+                  </span>
+                )}
+              </div>
             </div>
 
             {/* Article Content */}
             <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-6">
-              <div className="space-y-3">
+              <div className="space-y-3.5">
                 <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
                   <span className="flex items-center gap-1">
-                    <Calendar className="h-3.5 w-3.5" />
+                    <Calendar className="h-3.5 w-3.5 text-primary" />
                     {article.publishedAt}
                   </span>
                   <span>•</span>
                   <span className="flex items-center gap-1">
-                    <User className="h-3.5 w-3.5" />
+                    <User className="h-3.5 w-3.5 text-primary" />
                     {article.author}
                   </span>
                 </div>
@@ -85,15 +129,18 @@ export default function NewsPage() {
                 </p>
 
                 {/* Article Body Preview */}
-                <p className="text-xs sm:text-sm text-foreground/80 leading-relaxed bg-muted/30 p-4 rounded-xl border">
+                <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed bg-muted/40 p-4 rounded-2xl border">
                   {article.content}
                 </p>
               </div>
 
               <div className="pt-2 border-t flex items-center justify-between">
-                <Button asChild variant="ghost" className="gap-2 p-0 text-primary hover:bg-transparent hover:underline font-semibold">
-                  <Link href={`#`}>
-                    <span>Baca Selengkapnya</span>
+                <span className="text-xs text-muted-foreground">
+                  {article.video ? "Dilengkapi Video Dokumentasi" : "Galeri Foto Ekshibisi"}
+                </span>
+                <Button asChild variant="ghost" className="gap-1.5 p-0 text-primary hover:bg-transparent hover:underline font-semibold text-sm">
+                  <Link href="/contact">
+                    <span>Konsultasi Liputan</span>
                     <ArrowUpRight className="h-4 w-4" />
                   </Link>
                 </Button>

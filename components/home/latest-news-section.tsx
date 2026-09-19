@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { newsData } from "@/data/news";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Newspaper, Calendar, User } from "lucide-react";
+import { ArrowRight, Newspaper, Calendar, User, Video } from "lucide-react";
 
 export function LatestNewsSection() {
   const latestNews = newsData.slice(0, 2);
@@ -22,7 +23,7 @@ export function LatestNewsSection() {
             Berita & Aktivitas Perusahaan
           </h2>
           <p className="text-muted-foreground text-sm sm:text-base max-w-2xl">
-            Ikuti perkembangan terkini seputar inovasi manufaktur, siaran pers resmi, dan wawasan operasional industri.
+            Ikuti liputan pameran industri internasional, siaran pers resmi, dan wawasan operasional industri manufaktur.
           </p>
         </div>
         <Button asChild variant="outline" className="gap-2 shrink-0">
@@ -41,19 +42,52 @@ export function LatestNewsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45, delay: idx * 0.1 }}
-            className="rounded-2xl border bg-card p-6 sm:p-8 shadow-sm hover:shadow-md transition-all hover:border-primary/40 flex flex-col justify-between space-y-5 group"
+            className="rounded-2xl border bg-card p-6 sm:p-8 shadow-sm hover:shadow-lg transition-all hover:border-primary/40 flex flex-col justify-between space-y-5 group overflow-hidden"
           >
-            <div className="space-y-3">
-              <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
-                <span className="rounded-full bg-primary/10 px-2.5 py-0.5 font-semibold text-primary">
+            {/* Media Thumbnail (Video / Image) */}
+            <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-muted -mx-6 -mt-6 sm:-mx-8 sm:-mt-8 mb-5">
+              {news.video ? (
+                <video
+                  src={news.video}
+                  poster={news.image}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              ) : (
+                <Image
+                  src={news.image}
+                  alt={news.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-40" />
+              <div className="absolute top-3 left-3 flex items-center gap-2">
+                <span className="rounded-full bg-primary px-2.5 py-0.5 text-xs font-semibold text-primary-foreground shadow-sm">
                   {news.category}
                 </span>
+                {news.video && (
+                  <span className="inline-flex items-center gap-1 rounded-full bg-black/70 backdrop-blur-sm px-2 py-0.5 text-[10px] font-medium text-white shadow-sm">
+                    <Video className="h-3 w-3 text-primary" />
+                    <span>Video</span>
+                  </span>
+                )}
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
                 <span className="flex items-center gap-1">
-                  <Calendar className="h-3.5 w-3.5" />
+                  <Calendar className="h-3.5 w-3.5 text-primary" />
                   {news.publishedAt}
                 </span>
+                <span>•</span>
                 <span className="flex items-center gap-1">
-                  <User className="h-3.5 w-3.5" />
+                  <User className="h-3.5 w-3.5 text-primary" />
                   {news.author}
                 </span>
               </div>
