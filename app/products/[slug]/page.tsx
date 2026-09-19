@@ -180,17 +180,22 @@ export default async function ProductDetailPage({
             </div>
           </div>
 
-          {/* Spesifikasi Teknis */}
+          {/* Spesifikasi Teknis Lengkap */}
           <div className="rounded-2xl border bg-card p-6 space-y-4 shadow-sm">
-            <h2 className="font-bold text-base text-foreground">Spesifikasi Teknis Lengkap</h2>
-            <div className="divide-y text-sm">
+            <div className="flex items-center justify-between border-b pb-3">
+              <h2 className="font-bold text-base text-foreground">Spesifikasi Teknis Lengkap</h2>
+              <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-primary/10 text-primary">
+                {Object.keys(product.specifications).length} Parameter
+              </span>
+            </div>
+            <div className="divide-y text-sm max-h-[460px] overflow-y-auto pr-2 space-y-0.5">
               {Object.entries(product.specifications).map(([key, val]) => (
-                <div key={key} className="py-2.5 flex justify-between items-center text-muted-foreground">
-                  <span className="font-medium text-foreground flex items-center gap-2">
-                    <Check className="h-4 w-4 text-primary shrink-0" />
+                <div key={key} className="py-2.5 flex justify-between items-start text-muted-foreground gap-4">
+                  <span className="font-medium text-foreground flex items-start gap-2 text-xs sm:text-sm">
+                    <Check className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" />
                     {key}
                   </span>
-                  <span className="font-semibold text-foreground/90">{val}</span>
+                  <span className="font-semibold text-foreground/90 text-right text-xs sm:text-sm">{val}</span>
                 </div>
               ))}
             </div>
@@ -219,6 +224,42 @@ export default async function ProductDetailPage({
           </div>
         </div>
       </div>
+
+      {/* Detail Spesifikasi Teknis Lengkap Berdasarkan Kategori */}
+      {product.specGroups && product.specGroups.length > 0 && (
+        <section className="rounded-3xl border bg-card/50 p-6 sm:p-10 space-y-8 shadow-sm" aria-label="Tabel Spesifikasi Teknis Lengkap">
+          <div className="border-b pb-5 space-y-2">
+            <span className="text-xs font-bold uppercase tracking-wider text-primary">
+              Engineering Specifications
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+              Spesifikasi Detail {product.name}
+            </h2>
+            <p className="text-muted-foreground text-sm sm:text-base">
+              Rincian teknis lengkap sistem mesin, transmisi, hidrolik, dimensi, dan kapasitas beban operasional.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {product.specGroups.map((group, gIdx) => (
+              <div key={gIdx} className="rounded-2xl border bg-background p-5 sm:p-6 shadow-xs space-y-3">
+                <h3 className="font-bold text-sm sm:text-base text-foreground flex items-center gap-2 border-b pb-3">
+                  <span className="h-2.5 w-2.5 rounded-full bg-primary shrink-0" />
+                  {group.group}
+                </h3>
+                <div className="divide-y text-xs sm:text-sm">
+                  {group.items.map((item, iIdx) => (
+                    <div key={iIdx} className="py-2.5 flex justify-between items-start gap-4 text-muted-foreground">
+                      <span className="font-medium text-foreground/85">{item.label}</span>
+                      <span className="font-semibold text-foreground text-right">{item.value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Related Products Section */}
       {otherProducts.length > 0 && (

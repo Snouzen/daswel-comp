@@ -1,3 +1,8 @@
+export interface SpecGroup {
+  group: string;
+  items: { label: string; value: string }[];
+}
+
 export interface Product {
   id: string;
   slug: string;
@@ -6,6 +11,7 @@ export interface Product {
   shortDescription: string;
   description: string;
   specifications: Record<string, string>;
+  specGroups?: SpecGroup[];
   image: string;
   gallery?: string[];
   youtubeUrl?: string;
@@ -19,21 +25,166 @@ export const productsData: Product[] = [
     name: "Backhoe Loader",
     category: "Alat Berat & Konstruksi",
     shortDescription:
-      "Kombinasi fleksibel Excavator, Wheel Loader, dan Bulldozer dengan kapasitas bucket 1.0 m³ dan backhoe 0.3 m³.",
+      "Kombinasi Excavator dan Wheel Loader (1 m³) serta Bulldozer dengan pilihan attachment multiguna.",
     description:
-      "Backhoe Loader adalah alat berat multifungsi yang menggabungkan 2 fungsi utama menjadi 1 unit tangguh: Excavator dan Wheel Loader. Alat ini dapat berfungsi sebagai Wheel Loader (kapasitas 1 kubik), Excavator (kapasitas 0.3 kubik), maupun Bulldozer. Lengan (Arm) Excavator dapat disesuaikan dengan berbagai attachment: Bulldozer, Auger, Gripper, Grasping Wood Fork, Grasping Grass Fork, atau Crushing Hammer.",
+      "Backhoe Loader adalah alat berat yang menggabungkan 2 alat menjadi 1 yaitu Excavator dan Wheel Loader. Alat ini berfungsi sebagai Wheel loader (kapasitas 1 kubik), Excavator (kapasitas 0.3 kubik), Buldozer. Dimana Arm Excavator dapat di adjust menjadi : Bulldozer, Auger, Gripper, Grasping Wood Fork, Grasping Grass Fork, atau Crushing Hammer.",
     specifications: {
-      "Model": "DBL3E (Integral Frame)",
-      "Berat Operasional": "8.200 kg",
-      "Mesin Penggerak": "WEICHAI WP4G95E221 (70 kW / 95 HP)",
-      "Kapasitas Bucket Loader": "1.0 m³ (Lifting 2.500 kg)",
-      "Kapasitas Backhoe": "0.3 m³",
-      "Kedalaman Gali Maks.": "4.082 - 4.500 mm",
-      "Dimensi Transport": "6.100 × 2.365 × 3.752 mm",
-      "Kecepatan Maksimal": "28 km/jam",
-      "Sistem Kemudi": "BZZ5-250 (Sudut Kemudi ±36°)",
-      "Sistem Pengereman": "Air Over Oil Caliper Brake",
+      "Model": "DBL3E",
+      "Feature": "Integral frame",
+      "Overall Operating Weight": "8200 KG",
+      "Transport Dimension (L×W×H)": "6100 × 2365 × 3752 mm",
+      "Wheel base": "2200 mm",
+      "Min. Ground Clearance": "300 mm",
+      "Bucket Capacity": "1.0 m³",
+      "Breakout Force": "58 KN",
+      "Loading Lifting Capacity": "2500 KG",
+      "Bucket Dumping Height": "2742 mm",
+      "Bucket Dumping Distance": "925 mm",
+      "Digging Depth": "52 mm",
+      "Backhoe Capacity": "0.3 m³",
+      "Max. Digging Depth": "4082 / 4500 mm",
+      "Swing Angle of Excavator Grab": "190°",
+      "Max. Pulling Force": "65 KN",
+      "Engine Model": "WEICHAI WP4G95E221",
+      "Engine Type": "In Line Direct injection Four-Stroke and Injection Combustion Chamber",
+      "Cylinder-Inside Diameter*Stroke": "4-108 × 132 mm",
+      "Rated Power": "70 KW (95 HP)",
+      "Rated Speed": "2200 r/min",
+      "Min. Fuel Consumption": "≤ 230 g/km.h",
+      "Max. Torque": "≥ 400 N.M",
+      "Displacement": "4.837 L",
+      "Model of Steering Device": "BZZ5-250",
+      "Steering Angle": "± 36°",
+      "Min. turning radius": "6581 mm",
+      "Pressure of the system": "12 Mpa",
+      "Main Transmission Type": "Double Reduction",
+      "Final Reducer": "Single Stage Final Reducer",
+      "Rated Loader of Axle": "8 / 18.5 t",
+      "Torque Converter Model": "YJ280 (Single-stage Three Elements)",
+      "Max. Efficiency": "84.40%",
+      "Inlet Pressure": "1.3 - 1.5 Mpa",
+      "Outlet Pressure": "0.25 - 0.3 Mpa",
+      "Cooling Method": "Oil-cooling Pressure Circulation",
+      "Gearbox Type": "Fixed Shaft Power Transmission",
+      "Oil Pressure of Clutch": "1373 Kpa — 1569 Kpa",
+      "Gears": "Two forward, Two reverse gears",
+      "Max. Speed": "28 Km/h",
+      "Tyre Model": "14-17.5 / 19.5L-24",
+      "Pressure of Front wheel": "0.55 Mpa",
+      "Pressure of Back Wheel": "0.223 Mpa",
+      "Service Brake": "Air Over Oil Caliper Brake (External Type, Self-regulation, Self-balance)",
+      "Emergency Brake": "Operation Power Implementing brake / Manual Operation Power Terminating Brake",
+      "Digging Power of Excavator Grab": "60 KN",
+      "Digging Power of Dipper": "44 KN",
+      "Bucket Lifting Time": "6.8 S",
+      "Bucket Lowering Time": "3.1 S",
+      "Bucket Discharge Time": "2.0 S",
+      "Cooling system": "25 L",
+      "Fuel oil tank": "140 L",
+      "Front axle": "9 kg",
+      "Rear axle": "16 kg",
+      "Hydraulic oil tank": "150 L",
+      "Transmission": "25 L",
     },
+    specGroups: [
+      {
+        group: "Dimensi & Bobot (General)",
+        items: [
+          { label: "Model", value: "DBL3E" },
+          { label: "Feature", value: "Integral frame" },
+          { label: "Overall Operating Weight", value: "8200 KG" },
+          { label: "Transport Dimension (L×W×H)", value: "6100 × 2365 × 3752 mm" },
+          { label: "Wheel base", value: "2200 mm" },
+          { label: "Min. Ground Clearance", value: "300 mm" },
+        ],
+      },
+      {
+        group: "Kinerja Loader & Backhoe",
+        items: [
+          { label: "Bucket Capacity (Loader)", value: "1.0 m³" },
+          { label: "Breakout Force", value: "58 KN" },
+          { label: "Loading Lifting Capacity", value: "2500 KG" },
+          { label: "Bucket Dumping Height", value: "2742 mm" },
+          { label: "Bucket Dumping Distance", value: "925 mm" },
+          { label: "Digging Depth", value: "52 mm" },
+          { label: "Backhoe Capacity", value: "0.3 m³" },
+          { label: "Max. Digging Depth", value: "4082 / 4500 mm" },
+          { label: "Swing Angle of Excavator Grab", value: "190°" },
+          { label: "Max. Pulling Force", value: "65 KN" },
+        ],
+      },
+      {
+        group: "Mesin Penggerak (Engine)",
+        items: [
+          { label: "Engine Model", value: "WEICHAI WP4G95E221" },
+          { label: "Engine Type", value: "In Line Direct injection Four-Stroke and Injection Combustion Chamber" },
+          { label: "Cylinder-Inside Diameter*Stroke", value: "4-108 × 132 mm" },
+          { label: "Rated Power", value: "70 KW" },
+          { label: "Rated Speed", value: "2200 r/min" },
+          { label: "Min. Fuel Consumption", value: "≤ 230 g/km.h" },
+          { label: "Max. Torque", value: "≥ 400 N.M" },
+          { label: "Displacement", value: "4.837 L" },
+        ],
+      },
+      {
+        group: "Sistem Kemudi & Gandar (Steering & Axle)",
+        items: [
+          { label: "Model of Steering Device", value: "BZZ5-250" },
+          { label: "Steering Angle", value: "± 36°" },
+          { label: "Min. turning radius", value: "6581 mm" },
+          { label: "Pressure of the system", value: "12 Mpa" },
+          { label: "Main Transmission Type", value: "Double Reduction" },
+          { label: "Final Reducer", value: "Single Stage Final Reducer" },
+          { label: "Rated Loader of Axle", value: "8 / 18.5 t" },
+        ],
+      },
+      {
+        group: "Sistem Transmisi (Transmission & Gearbox)",
+        items: [
+          { label: "Torque Converter Model", value: "YJ280" },
+          { label: "Torque Converter Type", value: "Single-stage Three Elements" },
+          { label: "Max. Efficiency", value: "84.40%" },
+          { label: "Inlet Pressure", value: "1.3 - 1.5 Mpa" },
+          { label: "Outlet Pressure", value: "0.25 - 0.3 Mpa" },
+          { label: "Cooling Method", value: "Oil-cooling Pressure Circulation" },
+          { label: "Gearbox Type", value: "Fixed Shaft Power Transmission" },
+          { label: "Oil Pressure of Clutch", value: "1373 Kpa — 1569 Kpa" },
+          { label: "Gears", value: "Two forward, Two reverse gears" },
+          { label: "Max. Speed", value: "28 Km/h" },
+        ],
+      },
+      {
+        group: "Ban & Sistem Rem (Tyre & Brake)",
+        items: [
+          { label: "Tyre Model", value: "14-17.5 / 19.5L-24" },
+          { label: "Pressure of Front wheel", value: "0.55 Mpa" },
+          { label: "Pressure of Back Wheel", value: "0.223 Mpa" },
+          { label: "Service Brake", value: "Air Over Oil Caliper Brake (External Type, Self-regulation, Self-balance)" },
+          { label: "Emergency Brake", value: "Operation Power Implementing brake / Manual Operation Power Terminating Brake" },
+        ],
+      },
+      {
+        group: "Sistem Hidrolik (Hydraulic System)",
+        items: [
+          { label: "Digging Power of Excavator Grab", value: "60 KN" },
+          { label: "Digging Power of Dipper", value: "44 KN" },
+          { label: "Bucket Lifting Time", value: "6.8 S" },
+          { label: "Bucket Lowering Time", value: "3.1 S" },
+          { label: "Bucket Discharge Time", value: "2.0 S" },
+        ],
+      },
+      {
+        group: "Kapasitas Oli & Pendingin (Oil & Fluid)",
+        items: [
+          { label: "Cooling system", value: "25 L" },
+          { label: "Fuel oil tank", value: "140 L" },
+          { label: "Hydraulic oil tank", value: "150 L" },
+          { label: "Transmission", value: "25 L" },
+          { label: "Front axle", value: "9 kg" },
+          { label: "Rear axle", value: "16 kg" },
+        ],
+      },
+    ],
     image:
       "/images/Content/3. Product/Product Images/Backhoe Loader/Backhoe Loader (1).jpeg",
     gallery: [
