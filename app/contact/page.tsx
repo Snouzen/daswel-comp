@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { companyData } from "@/data/company";
 import { contactDepartments, quickInquiries } from "@/data/contact";
 import { ContactForm } from "@/components/contact/contact-form";
+import { ContactInfoSection } from "@/components/contact/contact-info-section";
 import { WhatsAppClickButton } from "@/components/contact/whatsapp-click-button";
 import { Button } from "@/components/ui/button";
 import {
@@ -105,79 +106,8 @@ export default function ContactPage() {
           </div>
         </header>
 
-        {/* Primary Contact Cards Grid */}
-        <section aria-label="Informasi Kontak Utama" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Alamat */}
-          <div className="rounded-2xl border bg-card p-6 shadow-sm space-y-3 flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                <MapPin className="h-5 w-5" />
-              </div>
-              <h2 className="font-bold text-base text-foreground">Alamat Kantor</h2>
-              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                {companyData.address}
-              </p>
-            </div>
-            <a
-              href="#map-section"
-              className="text-xs font-semibold text-primary hover:underline inline-flex items-center gap-1 pt-2"
-            >
-              Lihat di Peta
-            </a>
-          </div>
-
-          {/* Jam Operasional */}
-          <div className="rounded-2xl border bg-card p-6 shadow-sm space-y-3 flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                <Clock className="h-5 w-5" />
-              </div>
-              <h2 className="font-bold text-base text-foreground">Jam Layanan</h2>
-              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                {companyData.operatingHours}
-              </p>
-            </div>
-            <span className="text-xs text-primary font-medium">
-              Respon cepat jam kerja
-            </span>
-          </div>
-
-          {/* Telepon */}
-          <div className="rounded-2xl border bg-card p-6 shadow-sm space-y-3 flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                <Phone className="h-5 w-5" />
-              </div>
-              <h2 className="font-bold text-base text-foreground">Telepon Kantor</h2>
-              <p className="text-xs sm:text-sm text-muted-foreground">
-                <a href={`tel:${companyData.phone}`} className="hover:text-primary transition-colors font-medium">
-                  {companyData.phone}
-                </a>
-              </p>
-            </div>
-            <span className="text-xs text-muted-foreground">
-              Hotline Layanan Pelanggan
-            </span>
-          </div>
-
-          {/* Email */}
-          <div className="rounded-2xl border bg-card p-6 shadow-sm space-y-3 flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                <Mail className="h-5 w-5" />
-              </div>
-              <h2 className="font-bold text-base text-foreground">Email Resmi</h2>
-              <p className="text-xs sm:text-sm text-muted-foreground">
-                <a href={`mailto:${companyData.email}`} className="hover:text-primary transition-colors font-medium">
-                  {companyData.email}
-                </a>
-              </p>
-            </div>
-            <span className="text-xs text-muted-foreground">
-              Korespondensi & Penawaran
-            </span>
-          </div>
-        </section>
+        {/* Primary Contact Cards & Address Section */}
+        <ContactInfoSection />
 
         {/* Department Contacts & Direct Consultation Form */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
