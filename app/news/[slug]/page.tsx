@@ -278,19 +278,22 @@ export default async function NewsDetailPage({
         </div>
       </div>
 
-      {/* Related News Section */}
+      {/* Related / Suggested News Section */}
       {otherArticles.length > 0 && (
-        <section className="pt-8 border-t space-y-6">
-          <div className="flex justify-between items-end">
-            <div>
-              <h2 className="text-2xl font-bold tracking-tight text-foreground">
-                Liputan Dokumentasi Lainnya
+        <section aria-label="Saran Berita Lainnya" className="pt-10 border-t space-y-8">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
+            <div className="space-y-1.5">
+              <span className="text-xs font-bold uppercase tracking-wider text-primary">
+                Saran Berita Terkait
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+                Liputan Dokumentasi & Berita Lainnya
               </h2>
-              <p className="text-xs sm:text-sm text-muted-foreground mt-1">
-                Jelajahi keikutsertaan {companyData.name} di berbagai pameran industri strategis lainnya.
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                Jelajahi agenda pameran industri dan siaran pers resmi {companyData.name} lainnya.
               </p>
             </div>
-            <Button asChild variant="outline" size="sm" className="gap-2">
+            <Button asChild variant="outline" size="sm" className="gap-2 shrink-0">
               <Link href="/news">
                 <ArrowLeft className="h-3.5 w-3.5" />
                 Semua Berita
@@ -299,8 +302,8 @@ export default async function NewsDetailPage({
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {otherArticles.map((other) => (
-              <NewsCard key={other.id} article={other} />
+            {otherArticles.map((other, idx) => (
+              <NewsCard key={other.id} article={other} delay={idx * 0.1} />
             ))}
           </div>
         </section>
