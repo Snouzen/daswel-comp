@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { companyData } from "@/data/company";
 import { contactDepartments, quickInquiries } from "@/data/contact";
 import { ContactForm } from "@/components/contact/contact-form";
+import { WhatsAppClickButton } from "@/components/contact/whatsapp-click-button";
 import { Button } from "@/components/ui/button";
 import {
   MapPin,
@@ -97,6 +98,11 @@ export default function ContactPage() {
           <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
             Kami siap membantu kebutuhan spesifikasi unit alat berat, penawaran harga resmi, dan dukungan purna jual untuk seluruh mitra bisnis di Indonesia.
           </p>
+          <div className="pt-2">
+            <WhatsAppClickButton size="md" showPulse>
+              Chat WhatsApp Langsung (Sekali Klik)
+            </WhatsAppClickButton>
+          </div>
         </header>
 
         {/* Primary Contact Cards Grid */}
