@@ -14,7 +14,7 @@ export const mainNavItems: NavItem[] = [
   {
     label: "Product",
     href: "/products",
-    description: "Katalog peralatan industri, genset, dan mesin manufaktur",
+    description: "Katalog alat berat, mesin beton, mobile batching plant, dan forklift 4x4",
   },
   {
     label: "News",

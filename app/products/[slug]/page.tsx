@@ -4,6 +4,7 @@ import Link from "next/link";
 import { productsData } from "@/data/products";
 import { companyData } from "@/data/company";
 import { ProductCard } from "@/components/products/product-card";
+import { ProductImageGallery } from "@/components/products/product-image-gallery";
 import { ProductWhatsAppButton } from "@/components/products/product-whatsapp-button";
 import { Button } from "@/components/ui/button";
 import {
@@ -14,6 +15,7 @@ import {
   Zap,
   Wrench,
   ChevronRight,
+  Play,
 } from "lucide-react";
 
 export function generateStaticParams() {
@@ -138,18 +140,9 @@ export default async function ProductDetailPage({
 
       {/* Product Hero Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-        {/* Visual Box */}
-        <div className="lg:col-span-6 rounded-3xl border bg-gradient-to-br from-muted to-muted/60 h-80 sm:h-[460px] flex flex-col items-center justify-center p-8 text-center shadow-sm relative overflow-hidden">
-          {product.featured && (
-            <span className="absolute top-5 left-5 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground shadow-sm">
-              Produk Unggulan
-            </span>
-          )}
-          <div className="flex h-28 w-28 items-center justify-center rounded-3xl bg-background/90 text-primary shadow-md mb-4">
-            <Box className="h-14 w-14" />
-          </div>
-          <span className="text-lg font-bold text-foreground">{product.name}</span>
-          <span className="text-xs text-muted-foreground mt-1">Standar Mutu ISO 9001:2015</span>
+        {/* Visual Box / Gallery */}
+        <div className="lg:col-span-6">
+          <ProductImageGallery product={product} />
         </div>
 
         {/* Info Column */}
@@ -212,6 +205,14 @@ export default async function ProductDetailPage({
               label="Minta Penawaran Harga WhatsApp"
               className="shadow-md font-semibold px-6 py-6 text-sm sm:text-base"
             />
+            {product.youtubeUrl && (
+              <Button asChild variant="outline" size="lg" className="px-6 py-6 text-sm sm:text-base gap-2">
+                <a href={product.youtubeUrl} target="_blank" rel="noopener noreferrer">
+                  <Play className="h-4 w-4 text-red-600 fill-current" />
+                  Video Demonstrasi
+                </a>
+              </Button>
+            )}
             <Button asChild variant="outline" size="lg" className="px-6 py-6 text-sm sm:text-base">
               <Link href="/contact">Hubungi Kantor Pusat</Link>
             </Button>

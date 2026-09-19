@@ -53,43 +53,46 @@ const productAdvantages = [
 ];
 
 export const metadata: Metadata = {
-  title: "Katalog Produk & Peralatan Manufaktur",
+  title: "Katalog Alat Berat & Mesin Beton",
   description:
-    "Jelajahi lini produk mesin industri, genset heavy-duty, dan sistem filtrasi udara berkualitas tinggi berstandar ISO dari Daswel Company.",
+    "Jelajahi lini produk Backhoe Loader, Concrete Mixer with Pump, Rough Terrain Forklift 4x4, dan Self Loading Mixer berstandar internasional dari Daswel Company.",
   keywords: [
-    "produk industri",
-    "mesin manufaktur",
-    "genset industri",
-    "filtrasi udara industri",
-    "peralatan pabrik",
+    "alat berat",
+    "backhoe loader",
+    "concrete mixer with pump",
+    "rough terrain forklift 4x4",
+    "self loading mixer",
+    "mobile batching plant",
     "Daswel Company",
   ],
   alternates: {
     canonical: "https://daswel.com/products",
   },
   openGraph: {
-    title: `Produk & Peralatan Industri | ${companyData.name}`,
+    title: `Produk & Alat Berat Industri | ${companyData.name}`,
     description:
-      "Temukan mesin industri dan peralatan manufaktur berkinerja tinggi untuk menunjang produktivitas pabrik Anda.",
+      "Katalog resmi alat berat konstruksi, mobile batching plant, dan forklift segala medan Daswel Company di Indonesia.",
     url: "https://daswel.com/products",
     siteName: companyData.name,
     locale: "id_ID",
     type: "website",
     images: [
       {
-        url: "https://daswel.com/images/og-products.jpg",
+        url: "https://daswel.com/images/Content/3.%20Product/Product%20Images/Backhoe%20Loader/Backhoe%20Loader%20(1).jpeg",
         width: 1200,
         height: 630,
-        alt: `Katalog Peralatan Industri - ${companyData.name}`,
+        alt: `Katalog Alat Berat - ${companyData.name}`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `Produk & Peralatan Industri | ${companyData.name}`,
+    title: `Produk & Alat Berat Industri | ${companyData.name}`,
     description:
-      "Peralatan manufaktur efisiensi energi dengan garansi resmi dan dukungan teknis penuh.",
-    images: ["https://daswel.com/images/og-products.jpg"],
+      "Katalog resmi alat berat konstruksi, mobile batching plant, dan forklift segala medan Daswel Company.",
+    images: [
+      "https://daswel.com/images/Content/3.%20Product/Product%20Images/Backhoe%20Loader/Backhoe%20Loader%20(1).jpeg",
+    ],
   },
 };
 
@@ -99,13 +102,13 @@ export default function ProductsPage() {
       {/* Page Header */}
       <header className="max-w-3xl space-y-4">
         <div className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-          <span>Katalog Resmi</span>
+          <span>Katalog Resmi Daswel</span>
         </div>
         <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-foreground">
-          Produk & Peralatan Industri
+          Alat Berat & Mesin Konstruksi
         </h1>
         <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-          Seluruh mesin dan peralatan dirancang dengan teknologi presisi tinggi, efisiensi konsumsi daya, serta jaminan ketersediaan suku cadang resmi.
+          Peralatan konstruksi dan pengolahan beton berkualitas tinggi dengan efisiensi prima, ketahanan mesin teruji, serta jaminan ketersediaan suku cadang dan servis purna jual di Indonesia.
         </p>
       </header>
 
