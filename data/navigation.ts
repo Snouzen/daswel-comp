@@ -17,6 +17,11 @@ export const mainNavItems: NavItem[] = [
     description: "Kabar terbaru, aktivitas, dan wawasan industri perusahaan",
   },
   {
+    label: "Gallery",
+    href: "/gallery",
+    description: "Dokumentasi visual dan galeri foto unit alat berat operasional",
+  },
+  {
     label: "Contact Us",
     href: "/contact",
     description: "Informasi kontak, lokasi kantor, dan konsultasi WhatsApp",
@@ -27,5 +32,6 @@ export const footerNavItems: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "Product", href: "/products" },
   { label: "News", href: "/news" },
+  { label: "Gallery", href: "/gallery" },
   { label: "Contact Us", href: "/contact" },
 ];
