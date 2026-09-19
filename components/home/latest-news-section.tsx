@@ -1,11 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
-import { motion } from "framer-motion";
 import { newsData } from "@/data/news";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Newspaper, Calendar, User, Video } from "lucide-react";
+import { ArrowRight, Newspaper } from "lucide-react";
+import { NewsCard } from "@/components/news/news-card";
 
 export function LatestNewsSection() {
   const latestNews = newsData.slice(0, 2);
@@ -36,81 +35,7 @@ export function LatestNewsSection() {
       {/* News Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {latestNews.map((news, idx) => (
-          <motion.article
-            key={news.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.45, delay: idx * 0.1 }}
-            className="rounded-2xl border bg-card p-6 sm:p-8 shadow-sm hover:shadow-lg transition-all hover:border-primary/40 flex flex-col justify-between space-y-5 group overflow-hidden"
-          >
-            {/* Media Thumbnail (Video / Image) */}
-            <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-muted -mx-6 -mt-6 sm:-mx-8 sm:-mt-8 mb-5">
-              {news.video ? (
-                <video
-                  src={news.video}
-                  poster={news.image}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              ) : (
-                <Image
-                  src={news.image}
-                  alt={news.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              )}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-40" />
-              <div className="absolute top-3 left-3 flex items-center gap-2">
-                <span className="rounded-full bg-primary px-2.5 py-0.5 text-xs font-semibold text-primary-foreground shadow-sm">
-                  {news.category}
-                </span>
-                {news.video && (
-                  <span className="inline-flex items-center gap-1 rounded-full bg-black/70 backdrop-blur-sm px-2 py-0.5 text-[10px] font-medium text-white shadow-sm">
-                    <Video className="h-3 w-3 text-primary" />
-                    <span>Video</span>
-                  </span>
-                )}
-              </div>
-            </div>
-
-            <div className="space-y-3">
-              <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
-                <span className="flex items-center gap-1">
-                  <Calendar className="h-3.5 w-3.5 text-primary" />
-                  {news.publishedAt}
-                </span>
-                <span>•</span>
-                <span className="flex items-center gap-1">
-                  <User className="h-3.5 w-3.5 text-primary" />
-                  {news.author}
-                </span>
-              </div>
-
-              <h3 className="font-bold text-xl sm:text-2xl text-foreground group-hover:text-primary transition-colors leading-snug">
-                <Link href="/news">{news.title}</Link>
-              </h3>
-
-              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                {news.excerpt}
-              </p>
-            </div>
-
-            <div className="pt-2 border-t flex items-center justify-between">
-              <Link
-                href="/news"
-                className="text-sm font-semibold text-primary inline-flex items-center gap-1.5 hover:gap-2.5 transition-all group-hover:underline"
-              >
-                <span>Baca Selengkapnya</span>
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-          </motion.article>
+          <NewsCard key={news.id} article={news} delay={idx * 0.1} />
         ))}
       </div>
     </section>
