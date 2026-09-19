@@ -8,25 +8,33 @@ import { CompanyMap } from "@/components/contact/company-map";
 import { WhatsAppClickButton } from "@/components/contact/whatsapp-click-button";
 import { Button } from "@/components/ui/button";
 import {
-  MapPin,
-  Phone,
-  Mail,
-  Clock,
   MessageSquare,
-  Building2,
   Send,
   Headphones,
   Wrench,
   Briefcase,
-  ExternalLink,
 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Kontak Resmi & Lokasi Kantor",
   description:
     "Hubungi Daswel Company untuk konsultasi teknis peralatan alat berat, permintaan penawaran harga resmi, layanan purna jual, atau kunjungi kantor kami.",
+  keywords: [
+    "kontak daswel",
+    "alamat daswel company",
+    "nomor telepon daswel",
+    "whatsapp daswel",
+    "distributor alat berat jakarta",
+    "layanan purna jual alat berat",
+    "quotation harga alat berat",
+    "lokasi kantor daswel",
+  ],
   alternates: {
     canonical: "https://daswel.com/contact",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
   openGraph: {
     title: `Kontak Resmi & Lokasi Kantor | ${companyData.name}`,
@@ -36,12 +44,22 @@ export const metadata: Metadata = {
     siteName: companyData.name,
     locale: "id_ID",
     type: "website",
+    images: [
+      {
+        url: "https://daswel.com/images/logo.png",
+        width: 1200,
+        height: 630,
+        alt: `Kontak Resmi & Lokasi Kantor - ${companyData.name}`,
+        type: "image/png",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `Kontak Resmi & Lokasi Kantor | ${companyData.name}`,
     description:
       "Hubungi tim teknis dan representatif resmi Daswel Company untuk kebutuhan alat berat dan mesin industri.",
+    images: ["https://daswel.com/images/logo.png"],
   },
 };
 
@@ -54,10 +72,10 @@ export default function ContactPage() {
     <Briefcase key="partner" className="h-5 w-5 text-primary" />,
   ];
 
-  // LocalBusiness Structured Data (Schema.org)
+  // Comprehensive Schema.org Structured Data (LocalBusiness & ContactPage)
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": ["LocalBusiness", "ContactPage"],
     name: companyData.name,
     description: companyData.description,
     image: "https://daswel.com/images/logo.png",
@@ -71,12 +89,37 @@ export default function ContactPage() {
       postalCode: "14450",
       addressCountry: "ID",
     },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: -6.2088,
+      longitude: 106.8456,
+    },
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
         opens: "08:00",
         closes: "17:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Saturday",
+        opens: "08:30",
+        closes: "14:00",
+      },
+    ],
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: companyData.phone,
+        contactType: "customer service",
+        availableLanguage: ["Indonesian", "English"],
+      },
+      {
+        "@type": "ContactPoint",
+        telephone: companyData.phone,
+        contactType: "sales",
+        availableLanguage: ["Indonesian", "English"],
       },
     ],
     url: "https://daswel.com/contact",
