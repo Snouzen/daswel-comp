@@ -31,7 +31,7 @@ export function CtaSection() {
           {/* Heading */}
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-white">
             Siap Mengoptimalkan Efisiensi Proyek Anda Bersama{" "}
-            <span className="text-primary">Daswell Indonesia</span>?
+            <span className="text-primary">Daya Maestro Wellindo</span>?
           </h2>
 
           {/* Subtitle */}

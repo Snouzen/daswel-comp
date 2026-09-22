@@ -96,7 +96,7 @@ export function ClientLogosSection() {
             Dipercaya oleh Berbagai Korporasi & Instansi
           </h2>
           <p className="text-muted-foreground text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-            Armada alat berat dan mobile batching plant Daswell telah menjadi
+            Armada alat berat dan mobile batching plant Daya Maestro Wellindo telah menjadi
             tulang punggung berbagai proyek strategis BUMN, instansi
             pemerintah, dan kontraktor swasta di seluruh Indonesia.
           </p>

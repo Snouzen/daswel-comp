@@ -22,7 +22,7 @@ export function LatestNewsSection() {
             Berita & Aktivitas Perusahaan
           </h2>
           <p className="text-muted-foreground text-sm sm:text-base max-w-2xl">
-            Ikuti liputan pameran industri internasional, siaran pers resmi, dan dokumentasi aktivitas armada Daswell Indonesia.
+            Ikuti publikasi resmi, siaran pers, dan kabar aktivitas armada Daya Maestro Wellindo.
           </p>
         </div>
         <Button asChild variant="outline" className="gap-2 shrink-0">

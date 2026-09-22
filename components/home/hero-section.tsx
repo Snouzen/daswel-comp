@@ -14,7 +14,7 @@ export function HeroSection() {
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
         <Image
           src="/images/hero-bg.jpeg"
-          alt="Armada Unit Mesin Beton & Alat Berat Daswell Indonesia"
+          alt="Armada Unit Mesin Beton & Alat Berat Daya Maestro Wellindo"
           fill
           priority
           sizes="100vw"
@@ -37,17 +37,17 @@ export function HeroSection() {
           {/* Official Badge */}
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-background/80 px-4 py-1.5 text-xs font-semibold text-primary backdrop-blur-md shadow-xs">
             <span className="inline-block h-2 w-2 rounded-full bg-primary animate-pulse" />
-            <span>Wajah Digital Resmi Daswell Indonesia</span>
+            <span>Wajah Digital Resmi Daya Maestro Wellindo</span>
           </div>
 
           {/* Headline */}
           <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-6xl lg:text-7xl leading-tight">
-            Daswell <span className="text-primary">Indonesia</span>
+            Daya Maestro <span className="text-primary">Wellindo</span>
           </h1>
 
           {/* Description */}
           <p className="text-base sm:text-lg lg:text-xl text-foreground/90 leading-relaxed font-semibold sm:font-bold">
-            Daswell Indonesia telah menjadi pilihan pertama dalam Self Loading Mixer di Indonesia dan terus berkomitmen membantu pembangunan infrastruktur di seluruh penjuru negeri, khususnya area terpencil dengan akses jalan yang sulit dijangkau.
+            Daya Maestro Wellindo telah menjadi pilihan pertama dalam Self Loading Mixer di Indonesia dan terus berkomitmen membantu pembangunan infrastruktur di seluruh penjuru negeri, khususnya area terpencil dengan akses jalan yang sulit dijangkau.
           </p>
 
           {/* Action CTAs */}

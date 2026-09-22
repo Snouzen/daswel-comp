@@ -5,9 +5,20 @@ import { companyData } from "@/data/company";
 interface LogoProps {
   className?: string;
   showTagline?: boolean;
+  variant?: "navbar" | "footer" | "icon" | "full";
 }
 
-export function Logo({ className = "", showTagline = false }: LogoProps) {
+export function Logo({
+  className = "",
+  showTagline = false,
+  variant = "navbar",
+}: LogoProps) {
+  const isFooter = variant === "footer" || variant === "full";
+  const logoSrc = isFooter ? "/images/full-logo.png" : "/images/icon-logo.png";
+  const logoAlt = isFooter
+    ? "PT. Daya Maestro Wellindo Logo"
+    : `${companyData.name} DMW Logo`;
+
   return (
     <Link
       href="/"
@@ -16,23 +27,19 @@ export function Logo({ className = "", showTagline = false }: LogoProps) {
     >
       <div className="relative flex items-center py-0.5">
         <Image
-          src="/images/logo.png"
-          alt={`${companyData.name} Logo`}
-          width={160}
-          height={36}
+          src={logoSrc}
+          alt={logoAlt}
+          width={isFooter ? 240 : 180}
+          height={isFooter ? 190 : 80}
           priority
-          className="h-7 sm:h-8 w-auto object-contain dark:hidden"
-        />
-        <Image
-          src="/images/logo-white.png"
-          alt={`${companyData.name} Logo`}
-          width={160}
-          height={36}
-          priority
-          className="h-7 sm:h-8 w-auto object-contain hidden dark:block"
+          className={
+            isFooter
+              ? "h-16 sm:h-20 w-auto object-contain"
+              : "h-8 sm:h-9 w-auto object-contain"
+          }
         />
       </div>
-      {showTagline && (
+      {showTagline && !isFooter && (
         <span className="text-[11px] text-muted-foreground font-medium tracking-wide hidden sm:inline-block border-l pl-3">
           {companyData.tagline}
         </span>

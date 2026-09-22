@@ -52,11 +52,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/images/icon.png", type: "image/png" },
+      { url: "/images/icon-logo.png", type: "image/png" },
       { url: "/favicon.ico", sizes: "any" },
     ],
-    shortcut: "/images/icon.png",
-    apple: "/images/icon.png",
+    shortcut: "/images/icon-logo.png",
+    apple: "/images/icon-logo.png",
   },
   robots: {
     index: true,
@@ -83,7 +83,9 @@ export default function RootLayout({
     address: {
       "@type": "PostalAddress",
       streetAddress: companyData.address,
-      addressLocality: "Jakarta",
+      addressLocality: "Kota Tangerang",
+      addressRegion: "Banten",
+      postalCode: "15141",
       addressCountry: "ID",
     },
     contactPoint: [
@@ -100,9 +102,9 @@ export default function RootLayout({
   return (
     <html lang="id" className="scroll-smooth" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/images/icon.png" type="image/png" />
-        <link rel="shortcut icon" href="/images/icon.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/images/icon.png" />
+        <link rel="icon" href="/images/icon-logo.png" type="image/png" />
+        <link rel="shortcut icon" href="/images/icon-logo.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/images/icon-logo.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

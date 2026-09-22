@@ -25,7 +25,7 @@ export function TestimonialsSection() {
         <p className="text-muted-foreground text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
           Pengalaman langsung dari kontraktor, pengawas lapangan, dan pimpinan
           proyek infrastruktur di berbagai wilayah Indonesia bersama unit mesin
-          Daswell.
+          Daya Maestro Wellindo.
         </p>
       </div>
 

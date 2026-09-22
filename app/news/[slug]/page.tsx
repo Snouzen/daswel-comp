@@ -55,20 +55,33 @@ export async function generateMetadata({
       type: "article",
       publishedTime: article.publishedAt,
       authors: [article.author],
-      images: [
-        {
-          url: `https://daswel.com${article.image}`,
-          width: 1200,
-          height: 630,
-          alt: `${article.title} - ${companyData.name}`,
-        },
-      ],
+      images: article.image
+        ? [
+            {
+              url: `https://daswel.com${article.image}`,
+              width: 1200,
+              height: 630,
+              alt: `${article.title} - ${companyData.name}`,
+            },
+          ]
+        : [
+            {
+              url: `https://daswel.com/images/full-logo.png`,
+              width: 1200,
+              height: 630,
+              alt: `${article.title} - ${companyData.name}`,
+            },
+          ],
     },
     twitter: {
       card: "summary_large_image",
       title: `${article.title} | ${companyData.name}`,
       description: article.excerpt,
-      images: [`https://daswel.com${article.image}`],
+      images: [
+        article.image
+          ? `https://daswel.com${article.image}`
+          : `https://daswel.com/images/full-logo.png`,
+      ],
     },
   };
 }
@@ -91,7 +104,7 @@ export default async function NewsDetailPage({
     "@type": "NewsArticle",
     headline: article.title,
     description: article.excerpt,
-    image: [`https://daswel.com${article.image}`],
+    image: article.image ? [`https://daswel.com${article.image}`] : ["https://daswel.com/images/full-logo.png"],
     datePublished: article.publishedAt,
     author: {
       "@type": "Organization",
@@ -102,13 +115,13 @@ export default async function NewsDetailPage({
       name: companyData.name,
       logo: {
         "@type": "ImageObject",
-        url: "https://daswel.com/images/logo.png",
+        url: "https://daswel.com/images/full-logo.png",
       },
     },
   };
 
   const shareWaUrl = `https://wa.me/?text=${encodeURIComponent(
-    `Simak liputan dokumentasi ${article.title} dari ${companyData.name}: https://daswel.com/news/${article.slug}`
+    `Simak artikel ${article.title} dari ${companyData.name}: https://daswel.com/news/${article.slug}`
   )}`;
 
   return (
@@ -177,7 +190,7 @@ export default async function NewsDetailPage({
             poster={article.image}
             title={article.title}
           />
-        ) : (
+        ) : article.image ? (
           <div className="relative rounded-3xl border overflow-hidden bg-black shadow-lg">
             <div className="relative h-80 sm:h-[480px] w-full">
               <Image
@@ -190,12 +203,26 @@ export default async function NewsDetailPage({
               />
             </div>
           </div>
+        ) : (
+          <div className="rounded-3xl border border-dashed border-border bg-muted/20 py-16 sm:py-24 px-6 flex flex-col items-center justify-center text-center space-y-3">
+            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-muted/80 text-muted-foreground/50">
+              <ImageIcon className="h-8 w-8 stroke-[1.5]" />
+            </div>
+            <div className="space-y-1">
+              <p className="text-base font-semibold text-foreground">
+                Media & Dokumentasi Artikel
+              </p>
+              <p className="text-xs sm:text-sm text-muted-foreground max-w-sm">
+                Foto dan dokumentasi resmi untuk artikel ini akan segera diperbarui.
+              </p>
+            </div>
+          </div>
         )}
-        <p className="text-xs text-muted-foreground text-center">
-          {article.video
-            ? `Dokumentasi video partisipasi ${companyData.name} dalam ajang ${article.title}`
-            : `Dokumentasi visual gerai pameran ${companyData.name} pada ajang ${article.title}`}
-        </p>
+        {article.image && (
+          <p className="text-xs text-muted-foreground text-center">
+            {`Dokumentasi visual ${companyData.name} pada ${article.title}`}
+          </p>
+        )}
       </div>
 
       {/* Article Body Content */}

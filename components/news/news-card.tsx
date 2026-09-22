@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { NewsItem } from "@/data/news";
-import { Calendar, User, ArrowUpRight, Video } from "lucide-react";
+import { Calendar, User, ArrowUpRight, Video, Image as ImageIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface NewsCardProps {
@@ -24,16 +24,29 @@ export function NewsCard({ article, delay = 0 }: NewsCardProps) {
       {/* Visual Media Header / Thumbnail */}
       <Link
         href={`/news/${article.slug}`}
-        className="relative h-60 sm:h-72 w-full overflow-hidden bg-muted block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+        className="relative h-60 sm:h-72 w-full overflow-hidden bg-muted/40 block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
       >
-        <Image
-          src={article.image}
-          alt={article.title}
-          fill
-          sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-50" />
+        {article.image ? (
+          <>
+            <Image
+              src={article.image}
+              alt={article.title}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-50" />
+          </>
+        ) : (
+          <div className="w-full h-full flex flex-col items-center justify-center bg-muted/30 text-muted-foreground/40 gap-2.5 p-6 text-center border-b group-hover:bg-muted/50 transition-colors">
+            <div className="p-3.5 rounded-2xl bg-muted/80 text-muted-foreground/50 group-hover:text-primary transition-colors">
+              <ImageIcon className="h-8 w-8 stroke-[1.5]" />
+            </div>
+            <span className="text-xs font-medium tracking-wide text-muted-foreground/60">
+              Foto Belum Tersedia
+            </span>
+          </div>
+        )}
         <div className="absolute top-4 left-4 flex flex-wrap items-center gap-2">
           <span className="rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground shadow-sm">
             {article.category}
@@ -79,11 +92,11 @@ export function NewsCard({ article, delay = 0 }: NewsCardProps) {
 
         <div className="pt-3 border-t flex items-center justify-between">
           <span className="text-xs text-muted-foreground">
-            {article.video ? "Tersedia Video Dokumentasi" : "Dokumentasi Foto Pameran"}
+            {article.video ? "Tersedia Video Dokumentasi" : article.image ? "Dokumentasi Foto Pameran" : "Artikel DMW"}
           </span>
           <Button asChild variant="ghost" className="gap-1.5 p-0 text-primary hover:bg-transparent hover:underline font-semibold text-sm">
             <Link href={`/news/${article.slug}`}>
-              <span>Lihat Liputan Lengkap</span>
+              <span>Baca Selengkapnya</span>
               <ArrowUpRight className="h-4 w-4" />
             </Link>
           </Button>

@@ -7,35 +7,35 @@ import { Button } from "@/components/ui/button";
 import { NewsCard } from "@/components/news/news-card";
 
 export const metadata: Metadata = {
-  title: "Berita & Liputan Dokumentasi Pameran",
+  title: "Berita & Publikasi Perusahaan",
   description:
-    "Ikuti publikasi resmi, dokumentasi pameran industri, Mining Expo, dan Sawit Indonesia Expo dari Daswell Indonesia.",
+    `Ikuti publikasi resmi, kabar terbaru, dan siaran pers dari ${companyData.name}.`,
   alternates: {
     canonical: "https://daswel.com/news",
   },
   openGraph: {
-    title: `Berita & Dokumentasi Ekshibisi | ${companyData.name}`,
+    title: `Berita & Publikasi | ${companyData.name}`,
     description:
-      "Dokumentasi kehadiran Daswell Indonesia di Mining Expo dan Sawit Indonesia Expo serta inovasi peralatan manufaktur dan alat berat.",
+      `Publikasi resmi, kabar terbaru, dan siaran pers dari ${companyData.name}.`,
     url: "https://daswel.com/news",
     siteName: companyData.name,
     locale: "id_ID",
     type: "website",
     images: [
       {
-        url: "https://daswel.com/images/Content/Artikel/Mining Expo 2024/Mining Expo September 2024/Exhibition (1).jpeg",
+        url: "https://daswel.com/images/full-logo.png",
         width: 1200,
         height: 630,
-        alt: `Dokumentasi Pameran Industri - ${companyData.name}`,
+        alt: `Berita & Publikasi - ${companyData.name}`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `Berita & Dokumentasi Ekshibisi | ${companyData.name}`,
+    title: `Berita & Publikasi | ${companyData.name}`,
     description:
-      "Dokumentasi video dan foto pameran Mining Expo dan Sawit Indonesia Expo Daswell Indonesia.",
-    images: ["https://daswel.com/images/Content/Artikel/Mining Expo 2024/Mining Expo September 2024/Exhibition (1).jpeg"],
+      `Publikasi resmi dan siaran pers ${companyData.name}.`,
+    images: ["https://daswel.com/images/full-logo.png"],
   },
 };
 
@@ -46,13 +46,13 @@ export default function NewsPage() {
       <header className="max-w-3xl space-y-4">
         <div className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
           <Newspaper className="h-3.5 w-3.5" />
-          <span>Publikasi & Dokumentasi</span>
+          <span>Publikasi & Kabar</span>
         </div>
         <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-foreground">
-          Kabar & Liputan Pameran
+          Berita & Publikasi
         </h1>
         <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-          Dokumentasi resmi kehadiran {companyData.name} dalam pameran teknologi manufaktur, mekanisasi pertanian, dan industri pertambangan nasional.
+          Publikasi resmi, kabar aktivitas armada, dan siaran pers {companyData.name}.
         </p>
       </header>
 

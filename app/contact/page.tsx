@@ -11,16 +11,16 @@ import { MessageSquare } from "lucide-react";
 export const metadata: Metadata = {
   title: "Kontak Resmi & Lokasi Kantor",
   description:
-    "Hubungi Daswell Indonesia untuk konsultasi teknis peralatan alat berat, permintaan penawaran harga resmi, layanan purna jual, atau kunjungi kantor kami.",
+    "Hubungi Daya Maestro Wellindo untuk konsultasi teknis peralatan alat berat, permintaan penawaran harga resmi, layanan purna jual, atau kunjungi kantor kami.",
   keywords: [
     "kontak daswell",
-    "alamat daswell indonesia",
+    "alamat daya maestro wellindo",
     "nomor telepon daswell",
     "whatsapp daswell",
     "distributor alat berat jakarta",
     "layanan purna jual alat berat",
     "quotation harga alat berat",
-    "lokasi kantor daswell cakung",
+    "lokasi kantor eraprima tangerang",
   ],
   alternates: {
     canonical: "https://daswel.com/contact",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `Kontak Resmi & Lokasi Kantor | ${companyData.name}`,
     description:
-      "Informasi kontak lengkap, alamat kantor resmi di Green Sedayu Bizpark Cakung, jam layanan konsultasi, dan direct WhatsApp Daswell Indonesia.",
+      "Informasi kontak lengkap, alamat kantor resmi di Komplek Pergudangan Eraprima Cipondoh Tangerang, jam layanan konsultasi, dan direct WhatsApp Daya Maestro Wellindo.",
     url: "https://daswel.com/contact",
     siteName: companyData.name,
     locale: "id_ID",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `Kontak Resmi & Lokasi Kantor | ${companyData.name}`,
     description:
-      "Hubungi tim teknis dan representatif resmi Daswell Indonesia untuk kebutuhan alat berat dan mesin konstruksi.",
+      "Hubungi tim teknis dan representatif resmi Daya Maestro Wellindo untuk kebutuhan alat berat dan mesin konstruksi.",
     images: ["https://daswel.com/images/logo.png"],
   },
 };
@@ -63,22 +63,22 @@ export default function ContactPage() {
     "@type": ["LocalBusiness", "ContactPage"],
     name: companyData.name,
     description: companyData.description,
-    image: "https://daswel.com/images/logo.png",
+    image: "https://daswel.com/images/full-logo.png",
     telephone: companyData.phone,
     email: companyData.email,
     address: {
       "@type": "PostalAddress",
       streetAddress:
-        "Green Sedayu Bizpark Cakung Blok GS 9 No. 35, RT.7/RW.6, Cakung Tim., Kec. Cakung",
-      addressLocality: "Jakarta Timur",
-      addressRegion: "DKI Jakarta",
-      postalCode: "13910",
+        "Komplek Pergudangan Eraprima, Jl. KH. Agus Salim No. 2, Blok C-3, Poris Plawad, Kec. Cipondoh",
+      addressLocality: "Kota Tangerang",
+      addressRegion: "Banten",
+      postalCode: "15141",
       addressCountry: "ID",
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: -6.1824,
-      longitude: 106.9535,
+      latitude: -6.1820,
+      longitude: 106.6570,
     },
     openingHoursSpecification: [
       {

@@ -17,10 +17,10 @@ export const testimonialsData: TestimonialItem[] = [
     bullets: [
       "Backhoe Loader DBL3E Daswell ini memiliki kinerja yang tangguh, handal, efisien dan perawatan mudah.",
       "Sparepart selalu tersedia.",
-      "PT. Daswell Indonesia responnya sangat cepat, dan sangat membantu.",
+      "PT. Daya Maestro Wellindo responnya sangat cepat, dan sangat membantu.",
     ],
     content:
-      "Backhoe Loader DBL3E Daswell ini memiliki kinerja yang tangguh, handal, efisien dan perawatan mudah. Ketersediaan sparepart terjamin dan respon dari PT. Daswell Indonesia sangat cepat serta sangat membantu kelancaran proyek.",
+      "Backhoe Loader DBL3E Daswell ini memiliki kinerja yang tangguh, handal, efisien dan perawatan mudah. Ketersediaan sparepart terjamin dan respon dari PT. Daya Maestro Wellindo sangat cepat serta sangat membantu kelancaran proyek.",
     rating: 5,
   },
   {
@@ -80,7 +80,7 @@ export const testimonialsData: TestimonialItem[] = [
     company: "CV. Papua Anugerah Sentosa",
     project: "Proyek RSUD",
     content:
-      "Daswell Indonesia selalu berkomitmen menyediakan peralatan yang representatif untuk membantu pembangunan di Indonesia dan menunjang semua aktifitas konstruksi. Tentunya tidak hanya penyediaan peralatan saja tapi juga sparepart dan teknisi yang selalu siap kapanpun konsumen butuhkan. Daswell Indonesia jaya !!!",
+      "Daya Maestro Wellindo selalu berkomitmen menyediakan peralatan yang representatif untuk membantu pembangunan di Indonesia dan menunjang semua aktifitas konstruksi. Tentunya tidak hanya penyediaan peralatan saja tapi juga sparepart dan teknisi yang selalu siap kapanpun konsumen butuhkan. Daya Maestro Wellindo jaya !!!",
     rating: 5,
   },
   {

@@ -14,7 +14,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Identitas Perusahaan */}
           <div className="space-y-4 md:col-span-2">
-            <Logo showTagline={true} />
+            <Logo variant="footer" />
             <p className="text-sm leading-relaxed max-w-md">
               {companyData.description}
             </p>
