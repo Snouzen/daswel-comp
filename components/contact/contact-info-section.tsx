@@ -21,7 +21,7 @@ export function ContactInfoSection() {
       icon: <Clock className="h-6 w-6 text-primary" />,
       title: "Jam Operasional",
       primaryText: companyData.operatingHours,
-      badge: "Senin - Jumat Aktif",
+      badge: "Senin - Sabtu Aktif",
       subText: "Tim teknis dan layanan WhatsApp siap merespon cepat pada jam operasional.",
     },
     {

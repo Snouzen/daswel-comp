@@ -52,11 +52,15 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/images/icon-logo.png", type: "image/png" },
-      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.ico?v=2", sizes: "any" },
+      { url: "/favicon-32x32.png?v=2", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-16x16.png?v=2", type: "image/png", sizes: "16x16" },
+      { url: "/images/icon.png?v=2", type: "image/png", sizes: "512x512" },
     ],
-    shortcut: "/images/icon-logo.png",
-    apple: "/images/icon-logo.png",
+    shortcut: "/favicon.ico?v=2",
+    apple: [
+      { url: "/apple-touch-icon.png?v=2", sizes: "180x180", type: "image/png" },
+    ],
   },
   robots: {
     index: true,
@@ -102,9 +106,11 @@ export default function RootLayout({
   return (
     <html lang="id" className="scroll-smooth" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/images/icon-logo.png" type="image/png" />
-        <link rel="shortcut icon" href="/images/icon-logo.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/images/icon-logo.png" />
+        <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
+        <link rel="icon" href="/favicon-32x32.png?v=2" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/favicon-16x16.png?v=2" type="image/png" sizes="16x16" />
+        <link rel="shortcut icon" href="/favicon.ico?v=2" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" sizes="180x180" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

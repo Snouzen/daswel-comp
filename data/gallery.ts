@@ -26,8 +26,8 @@ export const galleryData: GalleryItem[] = [
     title: "Backhoe Loader",
     category: "Backhoe Loader",
     description:
-      "Unit Backhoe Loader multifungsi Daswel siap operasional untuk pekerjaan penggalian dan pemindahan material proyek konstruksi.",
-    image: "/images/Content/3. Product/Product Images/Backhoe Loader/Backhoe Loader (1).jpeg",
+      "Unit Backhoe Loader multifungsi Daya Maestro Wellindo siap operasional untuk pekerjaan penggalian dan pemindahan material proyek konstruksi.",
+    image: "/images/Content/1. Brand Guidelines/Brosur/Backhoe Loader (2).jpeg",
     date: "2025",
     location: "Proyek Konstruksi & Infrastruktur",
   },
@@ -37,32 +37,22 @@ export const galleryData: GalleryItem[] = [
     category: "Backhoe Loader",
     description:
       "Tampilan sisi depan unit Backhoe Loader dengan bucket kokoh dan sistem hidrolik bertekanan tinggi.",
-    image: "/images/Content/3. Product/Product Images/Backhoe Loader/Backhoe Loader (2).jpeg",
+    image: "/images/Content/3. Product/Product Images/Backhoe Loader/Backhoe Loader (1).jpeg",
     date: "2025",
-    location: "Stockyard Daswel",
+    location: "Stockyard Daya Maestro Wellindo",
   },
   {
     id: "gal-bhl-3",
     title: "Backhoe Loader",
     category: "Backhoe Loader",
     description:
-      "Uji coba manuver dan stabilitas unit Backhoe Loader pada medan tanah terbuka sebelum pengiriman unit ke klien.",
-    image: "/images/Content/3. Product/Product Images/Backhoe Loader/Backhoe Loader (3).jpeg",
-    date: "2025",
-    location: "Area Pengujian Lapangan",
-  },
-  {
-    id: "gal-bhl-4",
-    title: "Backhoe Loader",
-    category: "Backhoe Loader",
-    description:
       "Struktur boom arm dan arm penggali belakang dengan jangkauan optimal untuk efisiensi galian fondasi.",
     image: "/images/Content/3. Product/Product Images/Backhoe Loader/Backhoe Loader (4).jpeg",
     date: "2025",
-    location: "Workshop Daswel",
+    location: "Workshop Daya Maestro Wellindo",
   },
   {
-    id: "gal-bhl-5",
+    id: "gal-bhl-4",
     title: "Backhoe Loader",
     category: "Backhoe Loader",
     description:
@@ -98,10 +88,10 @@ export const galleryData: GalleryItem[] = [
     title: "Concrete Mixer with Pump",
     category: "Concrete Mixer with Pump",
     description:
-      "Pengoperasian mesin pengaduk dan pemompa beton langsung di lokasi kerja dengan mobilitas tinggi menggunakan roda penarik.",
-    image: "/images/Content/3. Product/Product Images/Concrete Mixer with Pump/Diesel Concrete Mixer with Pump (3).jpeg",
+      "Tampilan resmi unit Concrete Mixer with Pump tipe DMP-50 dengan sistem otomasi dan drum pengaduk terpadu.",
+    image: "/images/Content/1. Brand Guidelines/Brosur/Mixer Pump (2).jpeg",
     date: "2025",
-    location: "Pengecoran Lantai Industri",
+    location: "Katalog Brosur Resmi",
   },
   {
     id: "gal-cmp-4",
@@ -141,9 +131,9 @@ export const galleryData: GalleryItem[] = [
     category: "Rough Terrain Forklift 4x4",
     description:
       "Rough Terrain Forklift 4x4 dengan ground clearance tinggi dirancang khusus untuk mengangkat beban berat di medan berlumpur dan berbatu.",
-    image: "/images/Content/3. Product/Product Images/Rough Terrain Forklift 4x4/WhatsApp Image 2025-02-12 at 16.01.35.jpeg",
+    image: "/images/Content/3. Product/Product Images/rough terrain-2.jpeg",
     date: "2025",
-    location: "Yard Logistik Alat Berat",
+    location: "Stockyard Daya Maestro Wellindo",
   },
   {
     id: "gal-rtf-2",

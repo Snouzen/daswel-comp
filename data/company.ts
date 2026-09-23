@@ -24,7 +24,7 @@ export const companyData: CompanyInfo = {
   whatsappUrl:
     "https://wa.me/6282233154255?text=Halo%20Daya%20Maestro%20Wellindo%2C%20saya%20ingin%20berkonsultasi%20mengenai%20produk%20dan%20layanan%20Anda.",
   email: "ptdayamaestrowellindo@gmail.com",
-  operatingHours: "Senin - Jumat: 08:00 - 17:00 WIB",
+  operatingHours: "Senin - Sabtu: 09:00 - 17:00 WIB",
   mapEmbedUrl:
     "https://maps.google.com/maps?q=Komplek+Pergudangan+Eraprima,+Jl.+KH.+Agus+Salim+No.+2,+Poris+Plawad,+Cipondoh,+Kota+Tangerang,+Banten+15141&t=&z=16&ie=UTF8&iwloc=&output=embed",
   googleMapsUrl:

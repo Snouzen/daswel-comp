@@ -24,39 +24,39 @@ export interface DaySchedule {
 export const weeklySchedule: DaySchedule[] = [
   {
     day: "Senin",
-    hours: "08:00 - 17:00 WIB",
+    hours: "09:00 - 17:00 WIB",
     status: "open",
     statusText: "Buka Normal",
   },
   {
     day: "Selasa",
-    hours: "08:00 - 17:00 WIB",
+    hours: "09:00 - 17:00 WIB",
     status: "open",
     statusText: "Buka Normal",
   },
   {
     day: "Rabu",
-    hours: "08:00 - 17:00 WIB",
+    hours: "09:00 - 17:00 WIB",
     status: "open",
     statusText: "Buka Normal",
   },
   {
     day: "Kamis",
-    hours: "08:00 - 17:00 WIB",
+    hours: "09:00 - 17:00 WIB",
     status: "open",
     statusText: "Buka Normal",
   },
   {
     day: "Jumat",
-    hours: "08:00 - 17:00 WIB",
+    hours: "09:00 - 17:00 WIB",
     status: "open",
     statusText: "Buka Normal",
   },
   {
     day: "Sabtu",
-    hours: "08:30 - 14:00 WIB",
-    status: "limited",
-    statusText: "Janji Temu / Terbatas",
+    hours: "09:00 - 17:00 WIB",
+    status: "open",
+    statusText: "Buka Normal",
   },
   {
     day: "Minggu & Hari Libur",

@@ -95,7 +95,7 @@ export function CompanyMap() {
             {companyData.address}
           </p>
           <div className="text-[11px] text-muted-foreground pt-1 border-t flex items-center justify-between">
-            <span>Jam: 08.00 - 17.00 WIB</span>
+            <span>Jam: 09.00 - 17.00 WIB</span>
             <span className="text-primary font-medium">{companyData.phone}</span>
           </div>
         </div>
