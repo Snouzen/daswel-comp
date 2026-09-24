@@ -105,10 +105,10 @@ export const productsData: Product[] = [
       },
     ],
     image:
-      "/images/Content/1. Brand Guidelines/Brosur/Backhoe Loader (2).jpeg",
-    gallery: [
-      "/images/Content/1. Brand Guidelines/Brosur/Backhoe Loader (2).jpeg",
       "/images/Content/3. Product/Product Images/Backhoe Loader/Backhoe Loader (1).jpeg",
+    gallery: [
+      "/images/Content/3. Product/Product Images/Backhoe Loader/Backhoe Loader (1).jpeg",
+      "/images/Content/1. Brand Guidelines/Brosur/Backhoe Loader (2).jpeg",
       "/images/Content/3. Product/Product Images/Backhoe Loader/Backhoe Loader (4).jpeg",
       "/images/Content/3. Product/Product Images/Backhoe Loader/Backhoe Loader (5).jpeg",
       "/images/Content/3. Product/Product Images/Backhoe Loader 3D.png",
@@ -210,10 +210,10 @@ export const productsData: Product[] = [
       },
     ],
     image:
-      "/images/Content/1. Brand Guidelines/Brosur/Mixer Pump (2).jpeg",
-    gallery: [
-      "/images/Content/1. Brand Guidelines/Brosur/Mixer Pump (2).jpeg",
       "/images/Content/3. Product/Product Images/concrete mixer-2.jpeg",
+    gallery: [
+      "/images/Content/3. Product/Product Images/concrete mixer-2.jpeg",
+      "/images/Content/1. Brand Guidelines/Brosur/Mixer Pump (2).jpeg",
       "/images/Content/3. Product/Product Images/concrete-mixer-3.jpeg",
       "/images/Content/3. Product/Product Images/concrete-mixer-4.jpeg",
       "/images/Content/3. Product/Product Images/Concrete Mixer with Pump/Diesel Concrete Mixer with Pump (1).jpeg",
@@ -297,10 +297,10 @@ export const productsData: Product[] = [
       },
     ],
     image:
-      "/images/Content/3. Product/Product Images/rough terrain-2.jpeg",
-    gallery: [
-      "/images/Content/3. Product/Product Images/rough terrain-2.jpeg",
       "/images/Content/3. Product/Product Images/Rough Terrain Forklift 4x4/forklift 1.jpg",
+    gallery: [
+      "/images/Content/3. Product/Product Images/Rough Terrain Forklift 4x4/forklift 1.jpg",
+      "/images/Content/3. Product/Product Images/rough terrain-2.jpeg",
       "/images/Content/3. Product/Product Images/Rough Terrain Forklift 4x4/WhatsApp Image 2025-02-12 at 16.01.35.jpeg",
       "/images/Content/3. Product/Product Images/Rough Terrain Forklift 4x4/WhatsApp Image 2025-02-12 at 16.01.36.jpeg",
       "/images/Content/3. Product/Product Images/4x4 Forklift 3D.png",
@@ -408,10 +408,10 @@ export const productsData: Product[] = [
       },
     ],
     image:
-      "/images/Content/3. Product/Product Images/self loading mixer 3.5-2.jpeg",
-    gallery: [
-      "/images/Content/3. Product/Product Images/self loading mixer 3.5-2.jpeg",
       "/images/Content/3. Product/Product Images/Self Loading Mixer 3.5/Self Loading Mixer 3 (1).jpeg",
+    gallery: [
+      "/images/Content/3. Product/Product Images/Self Loading Mixer 3.5/Self Loading Mixer 3 (1).jpeg",
+      "/images/Content/3. Product/Product Images/self loading mixer 3.5-2.jpeg",
       "/images/Content/3. Product/Product Images/Self Loading Mixer 3.5/Self Loading Mixer 3 (2).jpeg",
       "/images/Content/3. Product/Product Images/Self Loading Mixer 3.5/Self Loading Mixer 3 (3).jpeg",
       "/images/Content/3. Product/Product Images/Self Loading Mixer 3.5/Self Loading Mixer 3 (4).jpeg",
@@ -533,10 +533,10 @@ export const productsData: Product[] = [
       },
     ],
     image:
-      "/images/Content/3. Product/Product Images/self loading mixer 4-2.jpeg",
-    gallery: [
-      "/images/Content/3. Product/Product Images/self loading mixer 4-2.jpeg",
       "/images/Content/3. Product/Product Images/self-loading 4-3.jpeg",
+    gallery: [
+      "/images/Content/3. Product/Product Images/self-loading 4-3.jpeg",
+      "/images/Content/3. Product/Product Images/self loading mixer 4-2.jpeg",
       "/images/Content/3. Product/Product Images/Self Loading Mixer 4/Self Loading Mixer 4 (1).jpeg",
       "/images/Content/3. Product/Product Images/Self Loading Mixer 4/Self Loading Mixer 4 (2).jpeg",
       "/images/Content/3. Product/Product Images/Self Loading Mixer 4/Self Loading Mixer 4 (3).jpeg",
