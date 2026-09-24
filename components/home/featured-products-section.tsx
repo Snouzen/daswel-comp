@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { productsData } from "@/data/products";
 import { companyData } from "@/data/company";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, MessageSquare, Check, Sparkles, Box } from "lucide-react";
+import { ArrowRight, MessageSquare, Check, Sparkles, Box, ShieldCheck } from "lucide-react";
 
 export function FeaturedProductsSection() {
   const featuredProducts = productsData.filter((p) => p.featured);
@@ -75,6 +75,11 @@ export function FeaturedProductsSection() {
                 <div className="absolute top-3 left-3 z-10">
                   <span className="inline-flex items-center gap-1 rounded-full bg-primary px-2.5 py-0.5 text-[11px] font-semibold text-primary-foreground shadow-sm">
                     Unggulan
+                  </span>
+                </div>
+                <div className="absolute top-3 right-3 z-10">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-emerald-600/95 backdrop-blur-xs px-2.5 py-0.5 text-[11px] font-semibold text-white shadow-sm">
+                    <ShieldCheck className="h-3 w-3" /> Garansi 1 Tahun
                   </span>
                 </div>
               </Link>

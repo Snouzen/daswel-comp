@@ -4,9 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Product } from "@/data/products";
-import { companyData } from "@/data/company";
 import { Button } from "@/components/ui/button";
-import { Box, Check, ArrowRight } from "lucide-react";
+import { Box, Check, ArrowRight, ShieldCheck } from "lucide-react";
 import { ProductWhatsAppButton } from "@/components/products/product-whatsapp-button";
 
 interface ProductCardProps {
@@ -51,6 +50,9 @@ export function ProductCard({ product, delay = 0 }: ProductCardProps) {
             Produk Unggulan
           </span>
         )}
+        <span className="absolute top-4 right-4 rounded-full bg-emerald-600/95 backdrop-blur-xs px-2.5 py-1 text-[11px] font-semibold text-white shadow-md z-10 flex items-center gap-1">
+          <ShieldCheck className="h-3 w-3" /> Garansi 1 Tahun
+        </span>
       </Link>
 
       {/* Body Content */}

@@ -117,7 +117,7 @@ export default function GalleryPage() {
           <div className="flex flex-wrap items-center gap-3 shrink-0">
             <Button asChild size="lg" className="gap-2">
               <a
-                href={`https://wa.me/${companyData.whatsapp}?text=${encodeURIComponent(
+                href={`https://wa.me/${companyData.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(
                   `Halo ${companyData.name}, saya melihat galeri foto unit Anda dan ingin menanyakan ketersediaan serta penawaran harga alat berat.`
                 )}`}
                 target="_blank"

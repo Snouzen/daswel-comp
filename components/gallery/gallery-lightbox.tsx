@@ -263,7 +263,7 @@ export function GalleryLightbox({
                 {/* Inquiry Action */}
                 <Button asChild size="sm" className="gap-2 shrink-0 w-full sm:w-auto shadow-md">
                   <a
-                    href={`https://wa.me/${companyData.whatsapp}?text=${encodeURIComponent(
+                    href={`https://wa.me/${companyData.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(
                       `Halo ${companyData.name}, saya melihat unit ${item.title} (${item.category}) di Galeri Foto website Anda. Mohon info ketersediaan stok, spesifikasi, dan penawaran harganya.`
                     )}`}
                     target="_blank"

@@ -28,9 +28,9 @@ const productAdvantages = [
   },
   {
     icon: Award,
-    title: "Garansi Resmi Komprehensif",
+    title: "Garansi Resmi 1 Tahun Penuh",
     description:
-      "Jaminan perlindungan purna jual hingga 2 tahun mencakup servis berkala, konsultasi teknis, dan proteksi komponen utama.",
+      "Setiap unit baru mendapatkan garansi resmi 1 tahun mencakup proteksi komponen utama, servis berkala, dan dukungan teknisi profesional.",
   },
   {
     icon: Wrench,
@@ -55,7 +55,7 @@ const productAdvantages = [
 export const metadata: Metadata = {
   title: "Katalog Alat Berat & Mesin Beton",
   description:
-    "Jelajahi lini produk Backhoe Loader, Concrete Mixer with Pump, Rough Terrain Forklift 4x4, dan Self Loading Mixer berstandar internasional dari Daswel Company.",
+    "Jelajahi lini produk Backhoe Loader, Concrete Mixer with Pump, Rough Terrain Forklift 4x4, dan Self Loading Mixer berstandar internasional dari Daya Maestro Wellindo.",
   keywords: [
     "alat berat",
     "backhoe loader",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     "rough terrain forklift 4x4",
     "self loading mixer",
     "mobile batching plant",
-    "Daswel Company",
+    "Daya Maestro Wellindo",
   ],
   alternates: {
     canonical: "https://daswel.com/products",
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `Produk & Alat Berat Industri | ${companyData.name}`,
     description:
-      "Katalog resmi alat berat konstruksi, mobile batching plant, dan forklift segala medan Daswel Company di Indonesia.",
+      "Katalog resmi alat berat konstruksi, mobile batching plant, dan forklift segala medan Daya Maestro Wellindo di Indonesia.",
     url: "https://daswel.com/products",
     siteName: companyData.name,
     locale: "id_ID",

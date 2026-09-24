@@ -73,7 +73,7 @@ export const contactDepartments: ContactDepartment[] = [
     description:
       "Konsultasi pemilihan unit alat berat, katalog spesifikasi teknis, dan permintaan surat penawaran harga resmi (quotation).",
     email: "ptdayamaestrowellindo@gmail.com",
-    phone: "+62 822 3315 4255",
+    phone: "+62 812 8920 5587",
     whatsappMessage:
       "Halo Tim Sales Daya Maestro Wellindo, saya ingin konsultasi mengenai unit alat berat dan meminta surat penawaran harga resmi.",
   },
@@ -83,7 +83,7 @@ export const contactDepartments: ContactDepartment[] = [
     description:
       "Layanan purna jual, inspeksi berkala, ketersediaan suku cadang original, dan pemeliharaan teknis di lapangan.",
     email: "ptdayamaestrowellindo@gmail.com",
-    phone: "+62 822 3315 4255",
+    phone: "+62 812 8920 5587",
     whatsappMessage:
       "Halo Tim Teknis Daya Maestro Wellindo, saya membutuhkan informasi layanan purna jual, servis berkala, dan suku cadang unit.",
   },
@@ -93,7 +93,7 @@ export const contactDepartments: ContactDepartment[] = [
     description:
       "Peluang kerjasama keagenan daerah, kerjasama kontraktor proyek skala nasional, dan program kemitraan industri.",
     email: "ptdayamaestrowellindo@gmail.com",
-    phone: "+62 822 3315 4255",
+    phone: "+62 812 8920 5587",
     whatsappMessage:
       "Halo Manajemen Daya Maestro Wellindo, saya tertarik untuk mendiskusikan potensi kemitraan dan kerjasama bisnis strategis.",
   },

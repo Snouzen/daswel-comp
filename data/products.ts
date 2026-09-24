@@ -16,6 +16,7 @@ export interface Product {
   gallery?: string[];
   youtubeUrl?: string;
   featured: boolean;
+  warranty?: string;
 }
 
 export const productsData: Product[] = [
@@ -50,6 +51,7 @@ export const productsData: Product[] = [
       "Sudut Kemudi": "±36°",
       "Radius Putar Balik Minimal": "6581mm",
       "Kecepatan Maksimal": "28Km/h",
+      "Garansi": "1 Tahun Garansi Resmi",
     },
     specGroups: [
       {
@@ -93,6 +95,14 @@ export const productsData: Product[] = [
           { label: "Kecepatan Maksimal", value: "28Km/h" },
         ],
       },
+      {
+        group: "Layanan Purna Jual & Garansi",
+        items: [
+          { label: "Jaminan Garansi", value: "1 Tahun Garansi Resmi" },
+          { label: "Ketersediaan Suku Cadang", value: "Tersedia & Terjamin" },
+          { label: "Dukungan Teknisi", value: "Teknisi Resmi DMW Siap ke Lokasi" },
+        ],
+      },
     ],
     image:
       "/images/Content/1. Brand Guidelines/Brosur/Backhoe Loader (2).jpeg",
@@ -105,6 +115,7 @@ export const productsData: Product[] = [
     ],
     youtubeUrl: "https://youtu.be/IoISWQqdYUM?si=GIgzE-w10gknaNXO",
     featured: true,
+    warranty: "1 Tahun Garansi Resmi",
   },
   {
     id: "prod-concrete-mixer-pump",
@@ -141,6 +152,7 @@ export const productsData: Product[] = [
       "Ukuran Ban": "7.50-16",
       "Merek Mesin": "Weichai",
       "Ukuran Piston Silinder": "230 mm",
+      "Garansi": "1 Tahun Garansi Resmi",
     },
     specGroups: [
       {
@@ -188,6 +200,14 @@ export const productsData: Product[] = [
           { label: "Ukuran Ban", value: "7.50-16" },
         ],
       },
+      {
+        group: "Layanan Purna Jual & Garansi",
+        items: [
+          { label: "Jaminan Garansi", value: "1 Tahun Garansi Resmi" },
+          { label: "Ketersediaan Suku Cadang", value: "Tersedia & Terjamin" },
+          { label: "Dukungan Teknisi", value: "Teknisi Resmi DMW Siap ke Lokasi" },
+        ],
+      },
     ],
     image:
       "/images/Content/1. Brand Guidelines/Brosur/Mixer Pump (2).jpeg",
@@ -201,6 +221,7 @@ export const productsData: Product[] = [
     ],
     youtubeUrl: "https://youtu.be/7T9DUNmbgTI?si=qfCivBntStEQE3bZ",
     featured: true,
+    warranty: "1 Tahun Garansi Resmi",
   },
   {
     id: "prod-rough-terrain-forklift-4x4",
@@ -227,6 +248,7 @@ export const productsData: Product[] = [
       "Tenaga Mesin": "36.8 - 58 kW",
       "Dimensi Keseluruhan": "3800 × 1850 × 2600 mm",
       "Fasilitas Kabin": "Dilengkapi AC Kabin & Kamera Monitor",
+      "Garansi": "1 Tahun Garansi Resmi",
     },
     specGroups: [
       {
@@ -265,6 +287,14 @@ export const productsData: Product[] = [
           { label: "Proteksi Kabin", value: "Kanopi ROPS / FOPS Heavy-Duty" },
         ],
       },
+      {
+        group: "Layanan Purna Jual & Garansi",
+        items: [
+          { label: "Jaminan Garansi", value: "1 Tahun Garansi Resmi" },
+          { label: "Ketersediaan Suku Cadang", value: "Tersedia & Terjamin" },
+          { label: "Dukungan Teknisi", value: "Teknisi Resmi DMW Siap ke Lokasi" },
+        ],
+      },
     ],
     image:
       "/images/Content/3. Product/Product Images/rough terrain-2.jpeg",
@@ -276,6 +306,7 @@ export const productsData: Product[] = [
       "/images/Content/3. Product/Product Images/4x4 Forklift 3D.png",
     ],
     featured: true,
+    warranty: "1 Tahun Garansi Resmi",
   },
   {
     id: "prod-self-loading-mixer-3-5",
@@ -313,6 +344,7 @@ export const productsData: Product[] = [
       "Aliran Air ke Mixer": "Jeda waktu otomatis",
       "Monitor Weighing System": "Yes",
       "Camera Monitor": "2 Sides",
+      "Garansi": "1 Tahun Garansi Resmi",
     },
     specGroups: [
       {
@@ -366,6 +398,14 @@ export const productsData: Product[] = [
           { label: "Camera Monitor", value: "2 Sides" },
         ],
       },
+      {
+        group: "Layanan Purna Jual & Garansi",
+        items: [
+          { label: "Jaminan Garansi", value: "1 Tahun Garansi Resmi" },
+          { label: "Ketersediaan Suku Cadang", value: "Tersedia & Terjamin" },
+          { label: "Dukungan Teknisi", value: "Teknisi Resmi DMW Siap ke Lokasi" },
+        ],
+      },
     ],
     image:
       "/images/Content/3. Product/Product Images/self loading mixer 3.5-2.jpeg",
@@ -381,6 +421,7 @@ export const productsData: Product[] = [
     ],
     youtubeUrl: "https://youtu.be/rmVZuAKIqKI?si=PB-CU2g6ySk0WYhg",
     featured: true,
+    warranty: "1 Tahun Garansi Resmi",
   },
   {
     id: "prod-self-loading-mixer-4",
@@ -420,6 +461,7 @@ export const productsData: Product[] = [
       "Radius Putar Balik": "4500 mm",
       "Monitor Timbangan": "Yes",
       "Monitor Kamera": "2 Sisi",
+      "Garansi": "1 Tahun Garansi Resmi",
     },
     specGroups: [
       {
@@ -481,6 +523,14 @@ export const productsData: Product[] = [
           { label: "Monitor Kamera", value: "2 Sisi" },
         ],
       },
+      {
+        group: "Layanan Purna Jual & Garansi",
+        items: [
+          { label: "Jaminan Garansi", value: "1 Tahun Garansi Resmi" },
+          { label: "Ketersediaan Suku Cadang", value: "Tersedia & Terjamin" },
+          { label: "Dukungan Teknisi", value: "Teknisi Resmi DMW Siap ke Lokasi" },
+        ],
+      },
     ],
     image:
       "/images/Content/3. Product/Product Images/self loading mixer 4-2.jpeg",
@@ -495,5 +545,6 @@ export const productsData: Product[] = [
     ],
     youtubeUrl: "https://youtu.be/rmVZuAKIqKI?si=PB-CU2g6ySk0WYhg",
     featured: true,
+    warranty: "1 Tahun Garansi Resmi",
   },
 ];
