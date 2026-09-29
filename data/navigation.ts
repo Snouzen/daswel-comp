@@ -17,14 +17,19 @@ export const mainNavItems: NavItem[] = [
     description: "Katalog alat berat, mesin beton, mobile batching plant, dan forklift 4x4",
   },
   {
-    label: "News",
-    href: "/news",
-    description: "Kabar terbaru, aktivitas, dan wawasan industri perusahaan",
+    label: "Deployment",
+    href: "/deployments",
+    description: "Sebaran proyek, rekam jejak operasional, training & after sales",
   },
   {
     label: "Gallery",
     href: "/gallery",
     description: "Dokumentasi visual dan galeri foto unit alat berat operasional",
+  },
+  {
+    label: "News",
+    href: "/news",
+    description: "Kabar terbaru, aktivitas, dan wawasan industri perusahaan",
   },
   {
     label: "About Us",
@@ -41,8 +46,9 @@ export const mainNavItems: NavItem[] = [
 export const footerNavItems: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "Product", href: "/products" },
-  { label: "News", href: "/news" },
+  { label: "Deployment", href: "/deployments" },
   { label: "Gallery", href: "/gallery" },
+  { label: "News", href: "/news" },
   { label: "About Us", href: "/about" },
   { label: "Contact Us", href: "/contact" },
 ];

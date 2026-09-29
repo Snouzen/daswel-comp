@@ -22,16 +22,6 @@ export type GalleryCategory = (typeof galleryCategories)[number];
 export const galleryData: GalleryItem[] = [
   // 1. Backhoe Loader
   {
-    id: "gal-bhl-1",
-    title: "Backhoe Loader",
-    category: "Backhoe Loader",
-    description:
-      "Unit Backhoe Loader multifungsi Daya Maestro Wellindo siap operasional untuk pekerjaan penggalian dan pemindahan material proyek konstruksi.",
-    image: "/images/Content/1. Brand Guidelines/Brosur/Backhoe Loader (2).jpeg",
-    date: "2025",
-    location: "Proyek Konstruksi & Infrastruktur",
-  },
-  {
     id: "gal-bhl-2",
     title: "Backhoe Loader",
     category: "Backhoe Loader",
@@ -84,16 +74,6 @@ export const galleryData: GalleryItem[] = [
     location: "Pengujian Tekanan Pompa",
   },
   {
-    id: "gal-cmp-3",
-    title: "Concrete Mixer with Pump",
-    category: "Concrete Mixer with Pump",
-    description:
-      "Tampilan resmi unit Concrete Mixer with Pump tipe DMP-50 dengan sistem otomasi dan drum pengaduk terpadu.",
-    image: "/images/Content/1. Brand Guidelines/Brosur/Mixer Pump (2).jpeg",
-    date: "2025",
-    location: "Katalog Brosur Resmi",
-  },
-  {
     id: "gal-cmp-4",
     title: "Concrete Mixer with Pump",
     category: "Concrete Mixer with Pump",
@@ -125,16 +105,6 @@ export const galleryData: GalleryItem[] = [
   },
 
   // 3. Rough Terrain Forklift 4x4
-  {
-    id: "gal-rtf-1",
-    title: "Rough Terrain Forklift 4x4",
-    category: "Rough Terrain Forklift 4x4",
-    description:
-      "Rough Terrain Forklift 4x4 dengan ground clearance tinggi dirancang khusus untuk mengangkat beban berat di medan berlumpur dan berbatu.",
-    image: "/images/Content/3. Product/Product Images/rough terrain-2.jpeg",
-    date: "2025",
-    location: "Stockyard Daya Maestro Wellindo",
-  },
   {
     id: "gal-rtf-2",
     title: "Rough Terrain Forklift 4x4",

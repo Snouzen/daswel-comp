@@ -3,6 +3,7 @@ import { companyData } from "@/data/company";
 import { HeroSection } from "@/components/home/hero-section";
 import { AboutAndFeaturesSection } from "@/components/home/about-and-features-section";
 import { FeaturedProductsSection } from "@/components/home/featured-products-section";
+import { DeploymentShowcaseSection } from "@/components/home/deployment-showcase-section";
 import { IndustrialNeedsSection } from "@/components/home/industrial-needs-section";
 import { LatestNewsSection } from "@/components/home/latest-news-section";
 import { TestimonialsSection } from "@/components/home/testimonials-section";
@@ -47,6 +48,9 @@ export default function HomePage() {
 
       {/* Sorotan Produk */}
       <FeaturedProductsSection />
+
+      {/* Sebaran Proyek & Deployment */}
+      <DeploymentShowcaseSection />
 
       {/* Kebutuhan Industri / Solusi Proyek */}
       <IndustrialNeedsSection />

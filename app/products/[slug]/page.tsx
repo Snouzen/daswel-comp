@@ -5,6 +5,7 @@ import { productsData } from "@/data/products";
 import { companyData } from "@/data/company";
 import { ProductCard } from "@/components/products/product-card";
 import { ProductImageGallery } from "@/components/products/product-image-gallery";
+import { ProductDeploymentSection } from "@/components/products/product-deployment-section";
 import { ProductWhatsAppButton } from "@/components/products/product-whatsapp-button";
 import { Button } from "@/components/ui/button";
 import {
@@ -260,6 +261,9 @@ export default async function ProductDetailPage({
           </div>
         </section>
       )}
+
+      {/* Sebaran Proyek & Deployment Unit Ini */}
+      <ProductDeploymentSection product={product} />
 
       {/* Related Products Section */}
       {otherProducts.length > 0 && (
