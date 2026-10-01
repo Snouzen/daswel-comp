@@ -17,7 +17,7 @@ export const mainNavItems: NavItem[] = [
     description: "Katalog alat berat, mesin beton, mobile batching plant, dan forklift 4x4",
   },
   {
-    label: "Deployment",
+    label: "Projects",
     href: "/deployments",
     description: "Sebaran proyek, rekam jejak operasional, training & after sales",
   },
@@ -30,6 +30,11 @@ export const mainNavItems: NavItem[] = [
     label: "News",
     href: "/news",
     description: "Kabar terbaru, aktivitas, dan wawasan industri perusahaan",
+  },
+  {
+    label: "Career",
+    href: "/career",
+    description: "Peluang karir dan rekrutmen profesional PT Daya Maestro Wellindo",
   },
   {
     label: "About Us",
@@ -46,9 +51,10 @@ export const mainNavItems: NavItem[] = [
 export const footerNavItems: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "Product", href: "/products" },
-  { label: "Deployment", href: "/deployments" },
+  { label: "Projects", href: "/deployments" },
   { label: "Gallery", href: "/gallery" },
   { label: "News", href: "/news" },
+  { label: "Career", href: "/career" },
   { label: "About Us", href: "/about" },
   { label: "Contact Us", href: "/contact" },
 ];

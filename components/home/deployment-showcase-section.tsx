@@ -259,12 +259,14 @@ export function DeploymentShowcaseSection() {
         </p>
         <Button
           asChild
-          className="rounded-full px-8 py-3.5 text-sm font-bold gap-2 shadow-lg"
+          className="h-auto whitespace-normal max-w-full rounded-2xl sm:rounded-full px-5 py-3 sm:px-8 sm:py-3.5 text-xs sm:text-sm font-bold shadow-lg"
         >
-          <Link href="/deployments">
-            <Layers className="h-4 w-4" />
-            <span>Buka Direktori Lengkap Deployment, Training &amp; After Sales</span>
-            <ChevronRight className="h-4 w-4" />
+          <Link href="/deployments" className="flex items-center justify-center gap-2 text-center">
+            <Layers className="h-4 w-4 shrink-0" />
+            <span className="text-center leading-snug">
+              Buka Direktori Lengkap Deployment, Training &amp; After Sales
+            </span>
+            <ChevronRight className="h-4 w-4 shrink-0" />
           </Link>
         </Button>
       </div>

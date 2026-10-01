@@ -38,6 +38,8 @@ export function ProductGrid({ products }: ProductGridProps) {
             return (
               <button
                 key={cat}
+                type="button"
+                suppressHydrationWarning
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
                   isSelected
@@ -56,6 +58,7 @@ export function ProductGrid({ products }: ProductGridProps) {
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
           <input
             type="text"
+            suppressHydrationWarning
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Cari mesin / produk..."

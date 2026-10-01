@@ -38,7 +38,7 @@ export function Navbar() {
 
         {/* Desktop Navigation */}
         <nav aria-label="Navigasi Utama" className="hidden md:flex items-center">
-          <ul className="flex items-center space-x-1 text-sm font-medium">
+          <ul className="flex items-center gap-0.5 lg:gap-1 text-xs lg:text-sm font-medium">
             {mainNavItems.map((link) => {
               const isActive =
                 link.href === "/"
@@ -49,7 +49,7 @@ export function Navbar() {
                   <Link
                     href={link.href}
                     aria-current={isActive ? "page" : undefined}
-                    className={`relative px-3.5 py-1.5 rounded-full text-sm transition-colors inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
+                    className={`relative px-2.5 lg:px-3 py-1.5 rounded-full text-xs lg:text-sm transition-colors inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
                       isActive
                         ? "text-primary font-semibold"
                         : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
@@ -85,6 +85,8 @@ export function Navbar() {
 
         {/* Mobile menu button */}
         <button
+          type="button"
+          suppressHydrationWarning
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden inline-flex items-center justify-center p-2 rounded-xl text-foreground hover:bg-muted focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors"
           aria-label={isOpen ? "Tutup Menu Navigasi" : "Buka Menu Navigasi"}
